@@ -80,6 +80,6 @@ databases.
 
 - Markdown , for readme, rofl
 - Lint
-- Unit Test
+- Unit Test 
 - MakeFile
-- CI , github actions
+- [CI , github actions](https://github.com/afa7789/tallypound/actions)
