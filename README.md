@@ -57,21 +57,23 @@ databases.
 ├── go.mod
 ├── go.sum
 ├── internal
+│   ├── compound
+│   │   ├── compound.go
+│   │   └── compound_test.go
 │   ├── domain
 │   │   └── flags.go
-│   ├── flight
-│   │   ├── flight.go
-│   │   └── flight_test.go
 │   └── server
-│       ├── flight_points.go
-│       ├── flight_points_test.go
+│       ├── compound.go
+│       ├── compound_test.go
 │       ├── server.go
 │       └── server_test.go
 ├── main.go
 ├── Makefile
-└── README.md
+├── README.md
+└── resources
+    └── compound.png
 
-5 directories, 13 files
+6 directories, 14 files
 ```
 
 ## Tools used:

@@ -11,7 +11,7 @@ func Compound(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	w.WriteHeader(http.StatusOK)
 	w.Header().Set("Content-Type", "application/json")
-	w.Write([]byte(
+	_, _ = w.Write([]byte(
 		fmt.Sprintf("Hello %+v", vars),
 	))
 }

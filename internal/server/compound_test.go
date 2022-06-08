@@ -19,7 +19,6 @@ func TestCompound(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-
 			w := httptest.NewRecorder()
 
 			s := NewServer()
@@ -35,7 +34,6 @@ func TestCompound(t *testing.T) {
 			if w.Code != tt.wantedStatus {
 				t.Errorf("FlightPoints() = %v, want %v", w.Code, tt.wantedStatus)
 			}
-
 		})
 	}
 }

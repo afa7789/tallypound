@@ -6,7 +6,7 @@ import (
 )
 
 // This test is mainly an example of a test I make for people to see.
-// It's not a very usefull test.
+// It's not a very useful test.
 func TestNewServer(t *testing.T) {
 	tests := []struct {
 		name string

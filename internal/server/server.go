@@ -29,9 +29,7 @@ func NewServer() *Server {
 // Start starts the REST server
 // simple mocking pattern to switch port if one is already in use.
 func (s *Server) Start(port int) {
-
 	err := http.ListenAndServe(fmt.Sprintf(":%d", port), s.router)
-
 	if err != nil {
 		// Using this error treatment to try again on next port
 		if strings.Contains(err.Error(), "address already in use") {
