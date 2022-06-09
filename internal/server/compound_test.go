@@ -5,6 +5,7 @@ package server
 import (
 	"net/http"
 	"net/http/httptest"
+	"reflect"
 	"testing"
 
 	"github.com/afa7789/tallypound/internal/cache"
@@ -74,6 +75,47 @@ func TestStats(t *testing.T) {
 			// Do something with results:
 			if w.Code != tt.wantedStatus {
 				t.Errorf("FlightPoints() = %v, want %v", w.Code, tt.wantedStatus)
+			}
+		})
+	}
+}
+
+func TestNewCompoundController(t *testing.T) {
+	type args struct {
+		cc *compound.CacheCompound
+	}
+
+	c := cache.NewCache()
+	cc := compound.NewCacheCompound(c)
+
+	tests := []struct {
+		name string
+		args args
+		want *CompoundController
+	}{
+		{
+			name: "fail at create",
+			args: args{
+				cc: nil,
+			},
+			want: &CompoundController{
+				cc: nil,
+			},
+		},
+		{
+			name: "success at create",
+			args: args{
+				cc: cc,
+			},
+			want: &CompoundController{
+				cc: cc,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := NewCompoundController(tt.args.cc); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("NewCompoundController() = %v, want %v", got, tt.want)
 			}
 		})
 	}
