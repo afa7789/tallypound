@@ -46,3 +46,15 @@ type ProposalsResponse struct {
 	Proposals         []Proposal        `json:"proposals"`
 	Request           Request           `json:"request"`
 }
+
+// stats: pending , active ,canceled , defeated , succeeded , queued , expired , executed .
+type Stats struct {
+	Pending   int `json:"pending"`
+	Active    int `json:"active"`
+	Canceled  int `json:"canceled"`
+	Defeated  int `json:"defeated"`
+	Succeeded int `json:"succeeded"`
+	Queued    int `json:"queued"`
+	Expired   int `json:"expired"`
+	Executed  int `json:"executed"`
+}

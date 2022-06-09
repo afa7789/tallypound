@@ -19,7 +19,9 @@ type Server struct {
 func NewServer() *Server {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/compound", Compound)
+	// gorilla mux routing group
+	r.HandleFunc("/stats", Stats)
+	r.HandleFunc("/proposals", Proposals)
 
 	return &Server{
 		router: r,
