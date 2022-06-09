@@ -5,6 +5,8 @@ package compound
 import (
 	"fmt"
 	"testing"
+
+	"github.com/afa7789/tallypound/internal/cache"
 )
 
 func TestProposals(t *testing.T) {
@@ -21,7 +23,10 @@ func TestProposals(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := Proposals()
+			c := cache.NewCache()
+			cc := NewCacheCompound(c)
+
+			got, err := cc.Proposals()
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Proposals() error = %v, wantErr %v", err, tt.wantErr)
 				return
@@ -44,7 +49,11 @@ func TestStats(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := Stats()
+			c := cache.NewCache()
+
+			cc := NewCacheCompound(c)
+
+			got, err := cc.Stats()
 			if (err != nil) != tt.wantErr {
 				t.Errorf("Stats() error = %v, wantErr %v", err, tt.wantErr)
 				return

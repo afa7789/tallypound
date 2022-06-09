@@ -8,9 +8,19 @@ import (
 	"github.com/afa7789/tallypound/internal/compound"
 )
 
+type CompoundController struct {
+	cc *compound.CacheCompound
+}
+
+func NewCompoundController(cc *compound.CacheCompound) *CompoundController {
+	return &CompoundController{
+		cc: cc,
+	}
+}
+
 // Proposals return an array with all proposals.
-func Proposals(w http.ResponseWriter, r *http.Request) {
-	p, err := compound.Proposals()
+func (ctl *CompoundController) Proposals(w http.ResponseWriter, r *http.Request) {
+	p, err := ctl.cc.Proposals()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "Error: %s", err)
@@ -31,8 +41,8 @@ func Proposals(w http.ResponseWriter, r *http.Request) {
 }
 
 // Stats return an object with the stats.
-func Stats(w http.ResponseWriter, r *http.Request) {
-	s, err := compound.Stats()
+func (ctl *CompoundController) Stats(w http.ResponseWriter, r *http.Request) {
+	s, err := ctl.cc.Stats()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		fmt.Fprintf(w, "Error: %s", err)

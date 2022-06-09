@@ -6,6 +6,9 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/afa7789/tallypound/internal/cache"
+	"github.com/afa7789/tallypound/internal/compound"
 )
 
 func TestProposals(t *testing.T) {
@@ -23,7 +26,9 @@ func TestProposals(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			w := httptest.NewRecorder()
 
-			s := NewServer()
+			c := cache.NewCache()
+			cc := compound.NewCacheCompound(c)
+			s := NewServer(cc)
 
 			req := httptest.NewRequest("GET", "/proposals", nil)
 
@@ -55,7 +60,9 @@ func TestStats(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			w := httptest.NewRecorder()
 
-			s := NewServer()
+			c := cache.NewCache()
+			cc := compound.NewCacheCompound(c)
+			s := NewServer(cc)
 
 			req := httptest.NewRequest("GET", "/stats", nil)
 

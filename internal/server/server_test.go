@@ -3,6 +3,9 @@ package server
 import (
 	"reflect"
 	"testing"
+
+	"github.com/afa7789/tallypound/internal/cache"
+	"github.com/afa7789/tallypound/internal/compound"
 )
 
 // This test is mainly an example of a test I make for people to see.
@@ -19,7 +22,10 @@ func TestNewServer(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := NewServer(); !reflect.DeepEqual(
+			c := cache.NewCache()
+			cc := compound.NewCacheCompound(c)
+
+			if got := NewServer(cc); !reflect.DeepEqual(
 				reflect.TypeOf(got).String(),
 				tt.want,
 			) {

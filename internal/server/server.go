@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/afa7789/tallypound/internal/compound"
 	"github.com/gorilla/mux"
 )
 
@@ -16,12 +17,16 @@ type Server struct {
 
 // New returns a new server that takes advantage of zerolog for logging
 // and holds a reference to the app configuration
-func NewServer() *Server {
+func NewServer(
+	cc *compound.CacheCompound,
+) *Server {
 	r := mux.NewRouter()
 
+	cCtrl := NewCompoundController(cc)
+
 	// gorilla mux routing group
-	r.HandleFunc("/stats", Stats)
-	r.HandleFunc("/proposals", Proposals)
+	r.HandleFunc("/stats", cCtrl.Stats)
+	r.HandleFunc("/proposals", cCtrl.Proposals)
 
 	return &Server{
 		router: r,

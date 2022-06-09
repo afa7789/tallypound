@@ -6,31 +6,52 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/afa7789/tallypound/internal/cache"
 	"github.com/afa7789/tallypound/internal/domain"
 )
 
+type CacheCompound struct {
+	cache *cache.Cache
+}
+
+func NewCacheCompound(cache *cache.Cache) *CacheCompound {
+	return &CacheCompound{
+		cache: cache,
+	}
+}
+
 // Proposals gets the list of proposals from the compound API.
 // by running a do while and using their pagination.
-func Proposals() ([]domain.Proposal, error) {
+func (cc *CacheCompound) Proposals() ([]domain.Proposal, error) {
 	var proposals []domain.Proposal
 	page := 1
 
 	// what I would do to improve, use concurrency and paralelism on the following pages after the first one.
 	// do while
 	for ok := true; ok; {
+		var body []byte
 		// create query
 		query := fmt.Sprintf("%s/?page_number=%d&page_size=10", domain.CompoundAPIProposals, page)
 		// Request the proposals from the Compound API with url compound_api_proposals
 		// and store the response in the variable res.
 		res, err := http.Get(query)
-		if err != nil {
-			return nil, err
-		}
 
-		// get the body out of the res
-		body, err := ioutil.ReadAll(res.Body)
 		if err != nil {
-			return nil, err
+			// get from cache
+			b, boolItem := cc.cache.Get(query)
+			if !boolItem {
+				return nil, err
+			}
+			// cast b to bytes and set it to body
+			body = b.([]byte)
+		} else {
+			// get the body out of the res
+			body, err = ioutil.ReadAll(res.Body)
+			if err != nil {
+				return nil, err
+			}
+			// set on cache
+			cc.cache.SetWithoutExpiration(query, body)
 		}
 
 		// unmarshal the body into a struct
@@ -56,7 +77,7 @@ func Proposals() ([]domain.Proposal, error) {
 }
 
 // Stats with the compound API answer mount a new struct with the stats.
-func Stats() (*domain.Stats, error) {
+func (cc *CacheCompound) Stats() (*domain.Stats, error) {
 	stats := &domain.Stats{}
 	page := 1
 
@@ -68,14 +89,23 @@ func Stats() (*domain.Stats, error) {
 		// Request the proposals from the Compound API with url compound_api_proposals
 		// and store the response in the variable res.
 		res, err := http.Get(query)
+		var body []byte
 		if err != nil {
-			return nil, err
-		}
-
-		// get the body out of the res
-		body, err := ioutil.ReadAll(res.Body)
-		if err != nil {
-			return nil, err
+			// get from cache
+			b, boolItem := cc.cache.Get(query)
+			if !boolItem {
+				return nil, err
+			}
+			// cast b to bytes and set it to body
+			body = b.([]byte)
+		} else {
+			// get the body out of the res
+			body, err = ioutil.ReadAll(res.Body)
+			if err != nil {
+				return nil, err
+			}
+			// set on cache
+			cc.cache.SetWithoutExpiration(query, body)
 		}
 
 		// unmarshal the body into a struct
