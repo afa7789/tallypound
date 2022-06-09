@@ -1,18 +1,18 @@
 package domain
 
 const (
-	compound     = "https://api.compound.finance"
-	compound_api = "/api/v2"
-	proposals    = "/governance/proposals"
+	compound    = "https://api.compound.finance"
+	compoundAPI = "/api/v2"
+	proposals   = "/governance/proposals"
 	// or
-	Compound_api_proposals = compound + compound_api + proposals
+	CompoundAPIProposals = compound + compoundAPI + proposals
 )
 
 type Proposal struct {
 	AgainstVotes string  `json:"against_votes"` // this is a float representation
 	Description  string  `json:"description"`   // just a text
 	ForVotes     string  `json:"for_votes"`     // this is a float representation
-	ID           string  `json:"id"`            // this is a string representation
+	ID           int     `json:"id"`            // this is a string representation
 	Title        string  `json:"title"`         // just a text
 	States       []State `json:"states"`
 }

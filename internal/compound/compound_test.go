@@ -25,10 +25,7 @@ func TestProposals(t *testing.T) {
 				return
 			}
 
-			fmt.Printf("got: %#v\n", got)
-			// if !reflect.DeepEqual(got, tt.want) {
-			// 	t.Errorf("Proposals() = %v, want %v", got, tt.want)
-			// }
+			fmt.Printf("got length: %#v\n", len(got))
 		})
 	}
 }
