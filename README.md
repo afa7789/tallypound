@@ -52,28 +52,32 @@ databases.
 
 ```
 .
-├── cmd
-│   └── server.go
+├── cmd // initial flow and start of the programn
+│   └── server.go
 ├── go.mod
 ├── go.sum
 ├── internal
-│   ├── compound
-│   │   ├── compound.go
-│   │   └── compound_test.go
-│   ├── domain
-│   │   └── flags.go
-│   └── server
-│       ├── compound.go
-│       ├── compound_test.go
-│       ├── server.go
-│       └── server_test.go
+│   ├── cache // caching package
+│   │   └── cache.go
+│   ├── compound // bridge that communicates with compound api package
+│   │   ├── compound.go
+│   │   └── compound_test.go
+│   ├── domain // shared data between packages
+│   │   ├── compound.go
+│   │   └── flags.go
+│   └── server // routes
+│       ├── compound.go
+│       ├── compound_test.go
+│       ├── server.go
+│       └── server_test.go
 ├── main.go
 ├── Makefile
 ├── README.md
 └── resources
     └── compound.png
 
-6 directories, 14 files
+7 directories, 16 files
+
 ```
 
 ## Tools used:
