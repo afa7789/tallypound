@@ -65,7 +65,7 @@ func TestStats(t *testing.T) {
 			cc := compound.NewCacheCompound(c)
 			s := NewServer(cc)
 
-			req := httptest.NewRequest("GET", "/stats", nil)
+			req := httptest.NewRequest("GET", "/stats-builder", nil)
 
 			// setting header as json
 			// req.Header.Set("Content-Type", "application/json; charset=UTF-8")

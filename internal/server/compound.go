@@ -61,3 +61,25 @@ func (ctl *CompoundController) Stats(w http.ResponseWriter, r *http.Request) {
 
 	_, _ = w.Write(a)
 }
+
+// CachedStats return an object with the stats.
+func (ctl *CompoundController) CachedStats(w http.ResponseWriter, r *http.Request) {
+	s, err := ctl.cc.CachedStats()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Error: %s", err)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/json")
+
+	a, err := json.Marshal(s)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Error: %s", err)
+		return
+	}
+
+	_, _ = w.Write(a)
+}

@@ -8,3 +8,7 @@ test: ## test: Run unit-tests of the project
 	@echo ">  Testing the app..."
 	@ go test -short -timeout=$(TEST_TIMEOUT) ./...
 	@echo ">  Testing done"
+
+run: ## test: Run unit-tests of the project
+	@echo "Start it"
+	@go run .

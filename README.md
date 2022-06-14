@@ -33,6 +33,8 @@ databases.
     git clone https://github.com/afa7789/tallypound
     cd tallypound
     go run .
+    # or
+    make run
 ```
 
 ## Testing project
@@ -56,7 +58,7 @@ databases.
 │   └── server.go
 ├── go.mod
 ├── go.sum
-├── internal
+├── internal 
 │   ├── compound
 │   │   ├── compound.go
 │   │   └── compound_test.go

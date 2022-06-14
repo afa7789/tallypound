@@ -1,0 +1,2266 @@
+{
+  "against_votes": "0",
+  "description": "## Simple Summary\n\nA proposal to adjust two (2) parameters for two (2) Compound assets.\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the tenth of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2022-04-20/3183)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to maintain the overall risk tolerance of the protocol while making risk trade-offs between specific assets.\n\nOur parameter recommendations are driven by an optimization function that balances 3 core metrics: insolvencies, liquidations, and borrow usage. Our parameter recommendations seek to optimize for this objective function. For more details, please see [Gauntlet's Parameter Recommendation Methodology](https://medium.com/gauntlet-networks/gauntlets-parameter-recommendation-methodology-8591478a0c1c) and [Gauntlet's Model Methodology](https://medium.com/gauntlet-networks/gauntlets-model-methodology-ea150ff0bafd).\n\n\n![](https://i.imgur.com/pOIFSQd.png)",
+  "for_votes": "522804.758125460216587004",
+  "id": 103,
+  "title": "Risk Parameter Updates for MKR and AAVE",
+  "states": [
+    {
+      "end_time": 1651291378,
+      "start_time": 1650844063,
+      "state": "pending",
+      "trx_hash": "0x05f2e77c50f81afe9b808321f13cbd12509052472ab576bb74ce386791a0dc48"
+    },
+    {
+      "end_time":   1651291378,
+      "end_time":   1651550565,
+      "start_time": 1651291378,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1651550565,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1651525109,
+      "start_time": 1651352309,
+      "state": "queued",
+      "trx_hash": "0xa1d61c7647345e1be93ec2af03bd687681d742e342dfc6ed9f333edbdc79864b"
+    },
+    {
+      "end_time_original":    0,
+      "end_time_q":           1651525109,
+      "start_time":           1651527256,
+      "start_time_s":         1651550565,
+      "end_time_Active":      1651550565,
+      "state": "executed",
+      "trx_hash": "0xa12ff9fcb25c367f1bcd84e5dd1f14773c2268d4b3261f93fd0c48ad1a18e0c1"
+    }
+  ]
+},
+{
+  "against_votes": "0",
+  "description": "## Background\n\n**There were [timing issues](https://www.comp.xyz/t/proposal-openzeppelin-security-partnership-2022-q2-adjustment/3100/3?u=cylon) with the Sablier stream creation in past canceled proposals. In this proposal, we've removed Sablier and will continue with the existing streaming function. More information on the timing issue is available [here](https://www.comp.xyz/t/proposal-openzeppelin-security-partnership-2022-q2-adjustment/3100/5?u=cylon).**\n\nStarting on Dec 21st, 2021, OpenZeppelin was [selected](https://compound.finance/governance/proposals/76) to offer the Compound DAO security services including continuous audit, security advisory, and monitoring. \n\nOpenZeppelin has finished auditing the Compound Deployed Contracts and finalized the CToken Refactor audit ([details here](https://blog.openzeppelin.com/compound-comprehensive-protocol-audit/)). On the Security Advisory services, OpenZeppelin has been focusing on improving[ the security of the Proposal Process](https://www.comp.xyz/t/proposal-security-process-discussion/2773) and Asset Listings. Finally, on Security Monitoring, OpenZeppelin is aiming to release an initial solution by the end of March.\n\nAs outlined in the original proposal, at the start of every quarter OpenZeppelin will create a proposal to update the service fee payment in accordance with the formula outlined in the [proposal](https://compound.finance/governance/proposals/76). As it is the beginning of a new quarter, OpenZeppelin is updating its existing streaming grant.\n\nMore detail in this [forum post](https://www.comp.xyz/t/proposal-openzeppelin-quarterly-adjustment/3100)",
+  "for_votes": "558761.674931243270752699",
+  "id": 102,
+  "title": "OpenZeppelin Security Partnership - 2022 Q2 Adjustment V4",
+  "states": [
+    {
+      "end_time": 1651102215,
+      "start_time": 1650649302,
+      "state": "pending",
+      "trx_hash": "0x013e4ca8db7fad5bd495001907d2cfa80170b2b42ea213c85fd9195d0ed523a5"
+    },
+    {
+      "end_time": 1651361402,
+      "start_time": 1651102215,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1651361402,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1651268101,
+      "start_time": 1651095301,
+      "state": "queued",
+      "trx_hash": "0xaae85aca8ad272d37c0cc93b526144d2cbcce8995710e49aecf1e9c5f11b5c63"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1651268524,
+      "state": "executed",
+      "trx_hash": "0x3142098f9762dfced7b10e0791eb99b73a598425a153e179fbf51a5ac1d86ba9"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Summary\nThis proposal is a patch developed by Equilibria which updates the cToken implementation contract for mid TVL assets. The new implementation has been deployed to [0x3363BAe2Fc44dA742Df13CD3ee94b6bB868ea376](https://etherscan.io/address/0x3363bae2fc44da742df13cd3ee94b6bb868ea376).\n\n## Changelog\nThese changes implement the following:\n\n* Upgrade the Solidity version of the cToken and related contracts to 0.8.10 - all contracts in the repo were changed to 0.8.10 but only the cTokens will be upgraded as part of upcoming governance proposals. This is due to the complexity of having multiple Solidity versions in the same repo.\n* Remove the usage of SafeMath and CarefulMath in favor of Solidity 0.8’s checked math - Solidity will now automatically revert when math errors occur (overflows, division by zero, etc)\n* Remove the custom errorCode return values in favor of reverts and custom errors - this allows for a more structured way to deal with errors rather than enum or string comparisons.\n\nThe last batch of cTokens will be upgraded in a future proposal if this one passes and causes no issues.\n\nThe previous upgrade can be seen here: [Proposal 96](https://compound.finance/governance/proposals/96)\n\n## Development\nThe code changes can be viewed here: [Pull Request #152](https://github.com/compound-finance/compound-protocol/pull/152).\n\nAudits of these changes were completed by ChainSecurity and OpenZeppelin and all issues were either fixed or out of scope for this change. For further discussion, please view the [Community Forum thread](https://www.comp.xyz/t/rfp12-implementation-ctoken-cleanup/2694).",
+  "for_votes": "649500.322205460807093133",
+  "id": 101,
+  "title": "Update Mid-TVL cToken Implementations",
+  "states": [
+    {
+      "end_time": 1650611668,
+      "start_time": 1650144129,
+      "state": "pending",
+      "trx_hash": "0x3db1ed6659fafda7e955ef993153a361f0a865666aec909a4e676e55c0042629"
+    },
+    {
+      "end_time": 1650870854,
+      "start_time": 1650611668,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1650870854,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1650824284,
+      "start_time": 1650651484,
+      "state": "queued",
+      "trx_hash": "0x1fe13517a6b14cf5bf12fb5ed4a1861af8a0fb9c8e4322b4dd18013ab9b3e755"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1650859686,
+      "state": "executed",
+      "trx_hash": "0xa4c9a72cafbac174c2935d78bf39f1483781a1a95a25c7f549eb72632c96f2e2"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Simple Summary\n\nA proposal to adjust two (2) parameters for two (2) Compound assets.\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the ninth of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2022-03-29/3111)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to maintain the overall risk tolerance of the protocol while making risk trade-offs between specific assets.\n\nOur parameter recommendations are driven by an optimization function that balances 3 core metrics: insolvencies, liquidations, and borrow usage. Our parameter recommendations seek to optimize for this objective function. For more details, please see [Gauntlet's Parameter Recommendation Methodology](https://medium.com/gauntlet-networks/gauntlets-parameter-recommendation-methodology-8591478a0c1c) and [Gauntlet's Model Methodology](https://medium.com/gauntlet-networks/gauntlets-model-methodology-ea150ff0bafd).\n\n\n![](https://i.imgur.com/d90n5g1.png)\n\n\n## Dashboard\n\n\nGauntlet has launched the [Compound Risk Dashboard](https://gov.gauntlet.network/compound). The community should use the Dashboard to better understand the updated parameter suggestions and general market risk in Compound.\n\n\nValue at Risk represents the 95th percentile **insolvency value** that occurs from simulations we run over a range of volatilities to approximate a tail event. \n\nLiquidations at Risk represents the 95th percentile **liquidation volume** that occurs from simulations we run over a range of volatilities to approximate a tail event.\n\nEven though these changes result in less than 1 bp of increased Borrow Usage given the current TVLs, they will improve long-term capital efficiency as the protocol grows and more users supply YFI and SUSHI.\n\n![](https://i.imgur.com/S5OIfAF.png)",
+  "for_votes": "629329.008397104062130244",
+  "id": 98,
+  "title": "Risk Parameter Updates for YFI and SUSHI",
+  "states": [
+    {
+      "end_time": 1649208448,
+      "start_time": 1649030865,
+      "state": "pending",
+      "trx_hash": "0x09327f120555faedb878137a752f27f001f41ffca7d1a1fe9ce42115571fe6c4"
+    },
+    {
+      "end_time": 1649786229,
+      "start_time": 1649208448,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1649786229,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1649661212,
+      "start_time": 1649488412,
+      "state": "queued",
+      "trx_hash": "0xdca68fac8731ffaa440b5bffcb415957cd6bc215d89577330d9e28f15777b1f6"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1649663207,
+      "state": "executed",
+      "trx_hash": "0x11706bc7bbfdf9ca2f49d7570c6cb5ca777e46cc13a57d9015d54bb7f436371a"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Summary\nThis proposal is a patch developed by Equilibria which updates the cToken implementation contract for 5 low TVL assets to a more recent Solidity version (0.8.10) and removes error codes in favor of reverts with custom errors. No other core logic changes are intended. The new implementation has been deployed to [0x3363BAe2Fc44dA742Df13CD3ee94b6bB868ea376](https://etherscan.io/address/0x3363bae2fc44da742df13cd3ee94b6bb868ea376).\n\n## Changelog\nThese changes implement the following:\n\n* Upgrade the Solidity version of the cToken and related contracts to 0.8.10 - all contracts in the repo were changed to 0.8.10 but only the cTokens will be upgraded as part of upcoming governance proposals. This is due to the complexity of having multiple Solidity versions in the same repo.\n* Remove the usage of SafeMath and CarefulMath in favor of Solidity 0.8’s checked math - Solidity will now automatically revert when math errors occur (overflows, division by zero, etc)\n* Remove the custom errorCode return values in favor of reverts and custom errors - this allows for a more structured way to deal with errors rather than enum or string comparisons.\n\nIt is important to note that the goal is to have no behavior changes in the happy path case, and to only move away from errorCodes and to revert in the failure case (both math errors and checks). All existing unit and scenario tests should pass with only changes to the error code cases.\n\nMore cTokens will be upgraded in a future proposal if this one passes and causes no issues.\n\n## Development\nThe code changes can be viewed here: [Pull Request #152](https://github.com/compound-finance/compound-protocol/pull/152).\n\nAudits of these changes were completed by ChainSecurity and OpenZeppelin and all issues were either fixed or out of scope for this change. For further discussion, please view the [Community Forum thread](https://www.comp.xyz/t/rfp12-implementation-ctoken-cleanup/2694).",
+  "for_votes": "576169.333220457339025160",
+  "id": 96,
+  "title": "Update Low-TVL cToken Implementations",
+  "states": [
+    {
+      "end_time": 1649184866,
+      "start_time": 1648680061,
+      "state": "pending",
+      "trx_hash": "0xe3923d923f34d0631e4dbb2776ac81678f38024a914289964fcc2bb1f9b1a0f2"
+    },
+    {
+      "end_time": 1649444053,
+      "start_time": 1649184866,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1649444053,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1649319450,
+      "start_time": 1649146650,
+      "state": "queued",
+      "trx_hash": "0x02700eeafc4e57e8facd091c8bb09ae033d2b0f60563887d81f1b59477bc7651"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1649366346,
+      "state": "executed",
+      "trx_hash": "0x7cc2acd03f837009b97c3d21a0efe6fb02ae4cda75a061e70f4d20ab411da275"
+    }
+  ]
+}
+{
+  "against_votes": "87585.240627539628188923",
+  "description": "The initial objective of the COMP rewards program was to distribute the token to our users. While this was an effective way to kickstart Compound and reward early users, the practice of COMP farming for profit has become very problematic.\n\nSince most COMP being distributed by the current rewards program is instantly sold off, existing users and token holders are at a great disservice. Their share of the protocol is being diluted for nothing other than farming COMP for profit. This COMP farming behavior is not the kind of activity that will bring value to the protocol, or for the existing users and token holders. Incentives need to be used to grow the protocol to the benefit of the protocol itself and its users and token holders.\n\nGoing forward, I believe it’s best to end the current COMP rewards program and to start a new one with the sole purpose of kickstarting new markets: kickstart rewards.\n\nThis proposal is the first step towards launching the new rewards program - **existing rewards are being cut by 50%**.\n\nFor more information and discussion, please visit the [discussion thread on the forums](https://www.comp.xyz/t/comp-reward-adjustments-v2/3074/).",
+  "for_votes": "883476.927439326974034034",
+  "id": 92,
+  "title": "COMP Rewards Adjustments - Kickstart Rewards: Step One",
+  "states": [
+    {
+      "end_time": 1648164084,
+      "start_time": 1647635789,
+      "state": "pending",
+      "trx_hash": "0x01f6eeb5c7c06fa068dc5a737b6965df580cd09413a7d686f890d1a41e61a7e2"
+    },
+    {
+      "end_time": 1648423271,
+      "start_time": 1648164084,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1648423271,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1648253473,
+      "start_time": 1648080673,
+      "state": "queued",
+      "trx_hash": "0xb4e3b9b6186bcfd10b5a820db85f6f48f696fef4397bc08c3f09dd9f8a699d05"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1648337728,
+      "state": "executed",
+      "trx_hash": "0xf5f03792956a8cd2f5129f0bc02d9f439152061960ecdfe1ca20796c197665a2"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Simple Summary\n\nA proposal to adjust three (3) parameters for three (3) Compound assets.\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the eighth of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2022-03-08/3065)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to maintain the overall risk tolerance of the protocol while making risk trade-offs between specific assets.\n\nOur parameter recommendations are driven by an optimization function that balances 3 core metrics: insolvencies, liquidations, and borrow usage. Our parameter recommendations seek to optimize for this objective function. For more details, please see [Gauntlet's Parameter Recommendation Methodology](https://medium.com/gauntlet-networks/gauntlets-parameter-recommendation-methodology-8591478a0c1c) and [Gauntlet's Model Methodology](https://medium.com/gauntlet-networks/gauntlets-model-methodology-ea150ff0bafd).\n\n\n![](https://i.imgur.com/DvyaAYu.png)\n\n\n\n\n\n\n## Dashboard\n\n\nGauntlet has launched the [Compound Risk Dashboard](https://gov.gauntlet.network/compound). The community should use the Dashboard to better understand the updated parameter suggestions and general market risk in Compound.\n\n\nValue at Risk represents the 95th percentile **insolvency value** that occurs from simulations we run over a range of volatilities to approximate a tail event. \n\nLiquidations at Risk represents the 95th percentile **liquidation volume** that occurs from simulations we run over a range of volatilities to approximate a tail event.\n\n![](https://i.imgur.com/ClBtga8.png)",
+  "for_votes": "722387.683831816955374091",
+  "id": 90,
+  "title": "Risk Parameter Updates for ZRX, MKR, and SUSHI",
+  "states": [
+    {
+      "end_time": 1647769808,
+      "start_time": 1647232921,
+      "state": "pending",
+      "trx_hash": "0x2ec400f5c8e6882d048518258736d33ee72352fb92df2e48761acf522fa1236e"
+    },
+    {
+      "end_time": 1648028995,
+      "start_time": 1647769808,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1648028995,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1647868546,
+      "start_time": 1647695746,
+      "state": "queued",
+      "trx_hash": "0x693629193058bcb1e4f3bc958d5561822e30f399f35afd0eaa70f1e283c129e9"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1647880938,
+      "state": "executed",
+      "trx_hash": "0x6815d51121f42c69c08c357b3fe6dbcb69ebee6486de7a541e4a885126a53451"
+    }
+  ]
+}
+{
+  "against_votes": "175917.128009657297012562",
+  "description": "## Simple Summary\nA proposal to reduce Compound's proposal threshold to 25K.\n\n## Overview\n\nGovernor Bravo enables Compound’s community to change the proposal threshold \u0026 over the past several months we’ve seen several key issues that we believe warrant lowering the proposal threshold. \n\nBased off of community feedback, we believe that reducing the proposal threshold to 25K provides an important step in the right direction. This new threshold enables 17 additional EOAs to propose, empowering more community members to participate in governance \u0026 programmatically reducing the barrier to entry for delegates.\n\n[Full Proposal and Forum Discussion](https://www.comp.xyz/t/lower-proposal-thresholds-v2/2840)\n\n## Technical Details\n1) Changes the minimum setable proposal threshold in GovernorBravoDelegate to 1K (simplifies lowering the proposal threshold in the future). Updates GovernorBravoDelegate implementation from [here](https://etherscan.io/address/0x563a63d650a5d259abae9248dddc6867813d3f87#code) to [here](https://etherscan.io/address/0x30065b703de5d473975a2db5bbb790a23fd6efbd) (identical besides the minimum setable proposal threshold constant).\n2) Reduces proposal threshold to 25K.\n3) Grants 5 COMP to Ratan to reimburse gas fees for deploying the new GovernorBravoDelegate contract.\n\nThe proposal simulation can be found [here](https://github.com/ratankaliani/compound-protocol/blob/master/spec/sim/0089-lower-proposal-threshold-v2/post_deploy.scen).",
+  "for_votes": "917350.216029953560001096",
+  "id": 89,
+  "title": "Lower Proposal Threshold to 25K COMP",
+  "states": [
+    {
+      "end_time": 1647522826,
+      "start_time": 1646978602,
+      "state": "pending",
+      "trx_hash": "0xb8128ed644be6448123acd0dcc082c8c54d4c999ed1561b82aa405dbd19c84b1"
+    },
+    {
+      "end_time": 1647782012,
+      "start_time": 1647522826,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1647782012,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1647676068,
+      "start_time": 1647503268,
+      "state": "queued",
+      "trx_hash": "0x8ae82fbdd326e1d005cd23a0c7218b94cd2379e8de4004631a2ba31b11f2187c"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1647695763,
+      "state": "executed",
+      "trx_hash": "0x0b785e0c6e8943cccfbecb2867f14e3c53c2e8eb37182c8719f668651e200891"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "The proposal updates the protocol's oracle from [here](https://etherscan.io/address/0x046728da7cb8272284238bd3e47909823d63a58d#code) to [here](https://etherscan.io/address/0x65c816077C29b557BEE980ae3cC2dCE80204A0C5#code). The contract code is identical, all existing markets retain the same configuration, and we introduce FRAX, LUSD, and RAI to the mix. \n\nChainlink is currently paying double gas costs to maintain prices on the current oracle and the pending oracle.\n\nFRAX, LUSD, and RAI have been added to the oracle on a best-efforts basis and exist for governance's consideration in future asset-specific governance votes. Their addition to the oracle is not our endorsement or opposition for their addition to the protocol. They are there so votes can occur to add the assets to the protocol, and the full merits of each asset should be considered at that time.",
+  "for_votes": "1065904.576352865479232347",
+  "id": 87,
+  "title": "Oracle Update",
+  "states": [
+    {
+      "end_time": 1647416784,
+      "start_time": 1646871140,
+      "state": "pending",
+      "trx_hash": "0xbb305071337df4c9aff6233e1da5959c539b1c50845219337d689a2dace0b2a8"
+    },
+    {
+      "end_time": 1647675971,
+      "start_time": 1647416784,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1647675971,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1647486234,
+      "start_time": 1647313434,
+      "state": "queued",
+      "trx_hash": "0xc4a0c4c5ea5a622fadb73b21f9384723e2e420977dfced39eda0386f5ad7ef01"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1647503145,
+      "state": "executed",
+      "trx_hash": "0xf63110960c29c691c11c688a9d289263fa598856aaea9b2b9604ca188457bc21"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Simple Summary\n\nA proposal to adjust six (6) parameters for six (6) Compound assets.\n\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the seventh of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2022-02-11/2967)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to maintain the overall risk tolerance of the protocol while making risk trade-offs between specific assets.\n\nOur parameter recommendations are driven by an optimization function that balances 3 core metrics: insolvencies, liquidations, and borrow usage. Our parameter recommendations seek to optimize for this objective function. For more details, please see [Gauntlet's Parameter Recommendation Methodology](https://medium.com/gauntlet-networks/gauntlets-parameter-recommendation-methodology-8591478a0c1c) and [Gauntlet's Model Methodology](https://medium.com/gauntlet-networks/gauntlets-model-methodology-ea150ff0bafd).\n\n![](https://i.imgur.com/uOkbuYq.png)\n\n\n## Dashboard\n\n\nGauntlet has launched the [Compound Risk Dashboard](https://gov.gauntlet.network/compound). The community should use the Dashboard to better understand the updated parameter suggestions and general market risk in Compound.\n\n\nValue at Risk represents the 95th percentile **insolvency value** that occurs from simulations we run over a range of volatilities to approximate a tail event. \n\nLiquidations at Risk represents the 95th percentile **liquidation volume** that occurs from simulations we run over a range of volatilities to approximate a tail event.\n\n![](https://i.imgur.com/wrvUYUl.png)",
+  "for_votes": "614123.391063454166463145",
+  "id": 85,
+  "title": "Risk Parameter Updates for UNI, LINK, MKR, AAVE, YFI, and SUSHI",
+  "states": [
+    {
+      "end_time": 1645484572,
+      "start_time": 1645309175,
+      "state": "pending",
+      "trx_hash": "0x35e6434083668e0bb304bda6117881cff26d57d377eb51f5079109d0b8d82a87"
+    },
+    {
+      "end_time": 1646141615,
+      "start_time": 1645484572,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1646141615,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1645951453,
+      "start_time": 1645778653,
+      "state": "queued",
+      "trx_hash": "0xfd2ccca6807f3a8fd5cd63d62a760759cc7496238255b6f0f2bb2bde68d63f16"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1646027492,
+      "state": "executed",
+      "trx_hash": "0x00e6174a179bb8e34d8835a8f4111d659e3b40ab73ee1c073c7917156b0eeff6"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Background\n\nOver the past several months, Gauntlet has been executing on its [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/1) engagement to continuously optimize capital efficiency and mitigate depositor losses. In just a quarter, Gauntlet has launched the [Risk Dashboard](https://gov.gauntlet.network/compound), implemented 5 sets of parameter recommendations, published 2 monthly risk reviews, and safely unlocked  additional borrow for Compound while maintaining protocol risk at safe levels. \n\n## Replacing Existing Contributor Grant with Sablier Stream\n\nAs outlined in the original proposal, at the start of every quarter Gauntlet will create a proposal to update the service fee payment (higher or lower) in accordance with the formula outlined in the [proposal](https://www.comp.xyz/t/dynamic-risk-parameters/2223#:~:text=parameter%20recommendations%20suggested.-,Cost,-Gauntlet%20charges%20a).\n\nAs it is the beginning of a new quarter, Gauntlet is updating its streaming grant. In addition, as was requested by the [Compound community](https://www.comp.xyz/t/migrate-gfx-labs-and-gauntlet-comp-streams-over-to-sablier/2785), Gauntlet will replace its existing COMP stream with a Sablier stream. This governance proposal sets the Contributor Comp Speed to Gauntlet to zero and sets up a Sablier stream to Gauntlet instead.\n\nReferences:\n[Full proposal and forum discussion](https://www.comp.xyz/t/gauntlet-quarterly-contributorcompspeed-update/2829)",
+  "for_votes": "1174287.802418952063062585",
+  "id": 82,
+  "title": "Dynamic Risk Parameters - Quarterly Update",
+  "states": [
+    {
+      "end_time": 1643055140,
+      "start_time": 1642437193,
+      "state": "pending",
+      "trx_hash": "0x5713d6b965f7f1866e499a8de364a49e88a7b1e6a32f12f8eda12c4a4d493b0f"
+    },
+    {
+      "end_time": 1643314326,
+      "start_time": 1643055140,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1643314326,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1643053559,
+      "start_time": 1642880759,
+      "state": "queued",
+      "trx_hash": "0x1a9692a039baebcedc28b13447e3528a6a469b8ae9e8241df14f50a5cbad25dd"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1643086377,
+      "state": "executed",
+      "trx_hash": "0xd1924e6d2b04303262fe90d6a354f92d795a6ce4bd7908cd77869aae50e77f43"
+    }
+  ]
+}
+{
+  "against_votes": "55000.00000000000000000",
+  "description": "## Simple Summary\n\nA proposal to adjust one (1) parameter for one (1) Compound asset.\n\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the sixth of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2022-01-07/2845)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to level set assets to a Moderate risk level of the protocol while making risk trade-offs between specific assets. Note that some are different from the original [risk level consensus check](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) as market conditions have changed.\n\n\n![](https://i.imgur.com/2LKqHgh.png)\n\n\n\n\n\n## Dashboard\n\n\nGauntlet has launched the [Compound Risk Dashboard](https://gov.gauntlet.network/compound). The community should use the Dashboard to better understand the updated parameter suggestions and general market risk in Compound.\n\n\nAs shown on our dashboard, these changes will increase Value at Risk by $130.9M (10.9%) and increase the borrow usage by 5 basis points. We would emphasize that all the VaR is projected to be liquidations that can be safely absorbed by the market.\n\n\n![](https://i.imgur.com/ijQ2dNJ.png)",
+  "for_votes": "405975.892116637351180407",
+  "id": 81,
+  "title": "Risk Parameter Updates for ETH",
+  "states": [
+    {
+      "end_time": 1642499302,
+      "start_time": 1641872532,
+      "state": "pending",
+      "trx_hash": "0x1c8b17923becbc789e561faee11c71fe78e8647a2bcd7fc1df3e0b1ee60c2324"
+    },
+    {
+      "end_time": 1642758489,
+      "start_time": 1642499302,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1642758489,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1642486434,
+      "start_time": 1642313634,
+      "state": "queued",
+      "trx_hash": "0x20f6914a06580f5d191732a59d56359bf94a5bc04d8f698d8f7ba87294e7b721"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1642517912,
+      "state": "executed",
+      "trx_hash": "0xe329abcad31dd532ee531718646320123b3d441934222ecdfcd19a6a6633d2fe"
+    }
+  ]
+}
+{
+  "against_votes": "3267.93000000000000000",
+  "description": "### Summary\n\nThe Compound DAO’s long-term security requires a comprehensive and continuous set of audit and security solutions to prevent loss of funds and protect its reputation resulting from risks to the Compound protocol, specifically those introduced by community-proposed upgrades\n\nOpenZeppelin will provide dedicated continuous audit services for all Compound governance proposals and will work with the Compound community to develop comprehensive security requirements and to implement best practice security monitoring. \n\nOpenZeppelin's services will be coordinated by a dedicated Security Advisor who along with the OpenZeppelin team, the Compound DAO and the community will work to:\n\n1. Improve the overall process to ensure the security of community proposed upgrades to the Compound Protocol  \n2. Provide continuous audits and dedicated resources to respond rapidly to all community proposed upgrades and changes \n3. Coordinate the creation of documented security checklists and requirements that can be shared with all proposal authors\n4. Implement an open security monitoring and security dashboard solution that will allow the community to validate security \n5. Integrate, support, and analyze other possible future important security program components such as formal verification, bug bounties, and white hat monitoring approved by the DAO.  \n\nThe combined effort of the OpenZeppelin team, the Security Advisor, and the Compound community will thereby reduce potential security risks and further assure the DAOs trusted reputation.\n\n**OpenZeppelin has revised its original proposal to focus on community feedback and excludes performance fees. OpenZeppelin’s fee will be the equivalent of $1 million USD in COMP every quarter for one year. This fee covers all services defined in the proposal. Payment will be made using a streaming grant based on recommendations given by community member feedback on the forum. Please see our full revised proposal here:**\n\n**[OZ Final Proposal](https://docs.google.com/document/d/1HVeQ5rbdzN2m7AR06eF-lbQHwFKZdvDj7WEiyMGdBdA/edit?usp=sharing)**\n\nWe believe that no other firm in the market can bring the same breadth and depth of offerings to the DAO.  We provide best-in-class continuous auditing and security advisory services; established leadership in secure development and secure operations; and external relationships and partnerships at a cost to value no other firm can match. \n\nWe would be honored to partner with the Compound DAO to not only deliver continuous auditing but to also work together to be leaders and innovators in how to securely and efficiently run an effective DAO security program!\n\n### Voting Instructions: [Audit Selection Process](https://www.comp.xyz/t/auditing-compound-protocol/2543/35)\n\nAll three audit proposals will be submitted to governance and voted on by the community. The proposal with the most \"For\" votes will win and the community multisig will then cancel the losing proposals after the vote is completed. Please only vote YES once for your preferred proposal.\n\nSee the [complete Forum discussion](https://www.comp.xyz/t/auditing-compound-protocol/2543) for more details",
+  "for_votes": "1370068.438326577794532751",
+  "id": 76,
+  "title": "OpenZeppelin Continuous Audit \u0026 Security Services Proposal",
+  "states": [
+    {
+      "end_time": 1640085279,
+      "start_time": 1639417027,
+      "state": "pending",
+      "trx_hash": "0xab45cdcd3fe2259db6d057de8af52619672b2def0391d138ff00dc6e36b8ca39"
+    },
+    {
+      "end_time": 1640344465,
+      "start_time": 1640085279,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1640344465,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1640121753,
+      "start_time": 1639948953,
+      "state": "queued",
+      "trx_hash": "0xede5d4155b79ef64952701dbfe84777418f299a512810e5f482ddaaf0316f48d"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1640131386,
+      "state": "executed",
+      "trx_hash": "0xd6e32bb8f87ffdaee3c887074d598ffae444896570fab686a00b668ef5651731"
+    }
+  ]
+}
+{
+  "against_votes": "108741.004511959551185506",
+  "description": "Pax Dollar (USDP) is one of the most regulated stablecoin around being regulated by the New York State Department of Financial Services (“NYDFS”). This has the following benefits ([taken from here](https://www.paxos.com/a-regulated-stablecoin-means-having-a-regulator/)):\n- The value of each stablecoin token is tied directly to the value of the US dollar, and the amount of “reserve” dollars equal or exceed the number of stablecoins outstanding.\n- Regulators are overseeing the establishment and maintenance of reserves backing the stablecoins.\n- Reserves may only be held in the safest forms, such as FDIC-insured bank accounts and in short-term maturity US Treasury instruments.\n- Reserves are fully segregated from corporate assets, specifically for the benefit of token holders, and are held bankruptcy remote pursuant to the New York Banking Law.\n\nThis proposal serves to add a market for Pax Dollar (USDP) with the following parameters:\n- Interest rate model: same as cDAI, cUSDT, and cTUSD (stablecoin standard)\n- Collateral factor: 0% (standard to start)\n- Reserve factor: 25% (standard)\n- Borrow limit: none\n- COMP rewards: none (for now, pending a broader discussion)\n\nThis proposal also updates the Uniswap-anchored ChainLink oracle with support for USDP (pegged to 1 USD).\n\nReferences:\n- [Etherscan - UAV price oracle](https://etherscan.io/address/0x046728da7cb8272284238bd3e47909823d63a58d)\n- [Etherscan - cUSDP](https://etherscan.io/token/0x8e870d67f660d95d5be530380d0ec0bd388289e1)\n- [Forums discussion](https://www.comp.xyz/t/new-listing-proposal-paxos-stablecoin-pax/1894/)\n- [Proposal simulation](https://github.com/TylerEther/compound-protocol/blob/add-market-usdp/spec/sim/1000-add-market-usdp/hypothetical_proposal.sim)\n\nProposer disclaimers, affiliations, and transparency:\n- USDP held over the past 90 days: none\n- Compensation for this proposal: none\n- Affiliation to USDP/Paxos: none",
+  "for_votes": "703357.777336542732347753",
+  "id": 73,
+  "title": "Add Market: USDP",
+  "states": [
+    {
+      "end_time": 1639863885,
+      "start_time": 1639193243,
+      "state": "pending",
+      "trx_hash": "0xd2826263ccbf3e1ebad48914c5ebdf459a360b4daddce44e75ba39f4a5885136"
+    },
+    {
+      "end_time": 1640123072,
+      "start_time": 1639863885,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1640123072,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1639821920,
+      "start_time": 1639649120,
+      "state": "queued",
+      "trx_hash": "0x7b4f6da6d343b151fd72ed3864db552ad4276621d2c0207f83bc7c73f8d7ba8b"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1640011545,
+      "state": "executed",
+      "trx_hash": "0x9fb39836e6f7fb64bf858b7e6b95a5f535fb1b643d842e8edde3bd7dfe0163c2"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Simple Summary\n\nA proposal to adjust three (3) total parameters across three (3) Compound assets.\n\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the fourth of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2021-11-30/2688)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to level set assets to a Moderate risk level of the protocol while making risk trade-offs between specific assets. Note that some are different from the original [risk level consensus check](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) as market conditions have changed.\n\n\n![](https://i.imgur.com/8Fse7LI.png)\n\n\n\n## Dashboard\n\n\nGauntlet has launched the [Compound Risk Dashboard](https://gov.gauntlet.network/compound). The community should use the Dashboard to better understand the updated parameter suggestions and general market risk in Compound.\n\nAs shown on our dashboard, these changes will slightly increase Value at Risk, but the corresponding increase in borrow usage is substantial.\n\n![](https://i.imgur.com/lrdPBk4.png)",
+  "for_votes": "1045592.196244642421927959",
+  "id": 72,
+  "title": "Risk Parameter Updates for WBTC, UNI, and COMP",
+  "states": [
+    {
+      "end_time": 1639025284,
+      "start_time": 1638314351,
+      "state": "pending",
+      "trx_hash": "0x7f755b992d9450d4a7c3b7711053faf8c5b192a9707f009f6c56da887b5033c8"
+    },
+    {
+      "end_time": 1639284470,
+      "start_time": 1639025284,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1639284470,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1638959308,
+      "start_time": 1638786508,
+      "state": "queued",
+      "trx_hash": "0xbf0fb40bd06c27918b041744e067ac72b55b6fd4d2454481b60d21eb3aea559e"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1638979790,
+      "state": "executed",
+      "trx_hash": "0x96640aa3878f36bb876d36bb25e29d083461750ed36f0e9f885b9c1c120f3cf7"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Simple Summary\n\nA proposal to adjust four (4) total parameters across four (4) Compound assets.\n\n\n## Background\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the third of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223/16).\n\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2021-11-17/2625)\n\n\n## Motivation and Specification\n\nThis set of parameter updates seeks to level set assets to a Moderate risk level of the protocol while making risk trade-offs between specific assets. Note that some are different from the original [risk level consensus check](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) as market conditions have changed.\n\nIn order to react to changing market conditions, our analysis recommends decreasing the collateral factors for BAT and ZRX while increasing collateral factors for ETH and DAI. Both BAT and ZRX have increased in volatility and decreased in volume since our last parameter changes. As shown on our dashboard, these changes will slightly increase VaR, but the corresponding increase in borrow usage is substantial. \n\n\n![](https://i.imgur.com/jXbgC5y.png)\n\n\n\n## Dashboard\n\n\nGauntlet has launched the [Compound Risk Dashboard](https://gov.gauntlet.network/compound). The community should use the Dashboard to better understand the updated parameter suggestions and general market risk in Compound.\n\nAs shown below, this set of parameter updates will slightly increase VaR, but meaningfully increase borrow usage.\n\n![](https://i.imgur.com/DeZz4Mj.png)",
+  "for_votes": "1006131.214673532776820074",
+  "id": 71,
+  "title": "Risk Parameter Updates for DAI, BAT, ZRX, and ETH",
+  "states": [
+    {
+      "end_time": 1638105717,
+      "start_time": 1637355035,
+      "state": "pending",
+      "trx_hash": "0x1b4e7f5cc8b1c2f57440cf79277ce43c540d5d60c85fe49d1d7898bd9cffb8d3"
+    },
+    {
+      "end_time": 1638364904,
+      "start_time": 1638105717,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1638364904,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1638052948,
+      "start_time": 1637880148,
+      "state": "queued",
+      "trx_hash": "0x91f74549c63406930b2d619e66b1d710f77dd5b480601e9d2563ec2505d54d15"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1638061015,
+      "state": "executed",
+      "trx_hash": "0xd2ea4e5afeb6a6cb0b462d74199caadc33013e6d03f2928a8870a066fe062f49"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "### Simple Summary\n\nA proposal to adjust four (4) total parameters across four (4) Compound assets.\n\n\n### Background\n\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the second of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223).\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2021-11-04/2559)\n\n### Motivation and Specification \n\nThese recommendations build upon [Proposal 066](https://compound.finance/governance/proposals/66). In [Proposal 066](https://compound.finance/governance/proposals/66), recommendations included increasing Collateral Factors for LINK, MKR, SUSHI, and YFI and this set of parameter recommendations further increases Collateral Factors for these assets. With this set of updates, Compound's Collateral Factor settings would now reach the Moderate risk level as outlined originally in the [Consensus Check](https://www.comp.xyz/t/community-risk-level-consensus-check/2437). No further gradual increases of Collateral Factors for these assets are planned at this time. \n\n\n![](https://i.imgur.com/PdTt9ni.png)",
+  "for_votes": "501434.002206131732226762",
+  "id": 69,
+  "title": "Risk Parameter Updates for LINK, MKR, SUSHI, and YFI",
+  "states": [
+    {
+      "end_time": 1637273718,
+      "start_time": 1636492197,
+      "state": "pending",
+      "trx_hash": "0x554be7a97df16fb02cc1050f7d49694363df64526f59837692e62ff17ac678d7"
+    },
+    {
+      "end_time": 1637532904,
+      "start_time": 1637273718,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1637532904,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1637118586,
+      "start_time": 1636945786,
+      "state": "queued",
+      "trx_hash": "0xc74c46d83bffad5ede70654e5c57b2cf6a765a8d0e525248d6a15282ae56d563"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1637181361,
+      "state": "executed",
+      "trx_hash": "0x6815b58ce462bf544a6fceb4fa237d18d4834836d8ae0c75e7e9d6d87a1f9812"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "This proposal stops COMP rewards for cCOMP borrowing using the new Comptroller function allowing for splitting COMP speeds. COMP rewards will remain the same for cCOMP suppliers.\n\nCurrently, there are COMP rewards given to cCOMP borrowers while the borrow cap is in use. This creates a situation where the net rate for borrowing COMP is negative.  As such, COMP borrowing is forced to the borrow CAP, and the market is unable to reach equilibrium. This proposal will cause the net rate of borrowing COMP to be positive and will result in the market reaching equilibrium.",
+  "for_votes": "749593.350459645483121794",
+  "id": 68,
+  "title": "End cCOMP Borrow Rewards",
+  "states": [
+    {
+      "end_time": 1636878508,
+      "start_time": 1636085872,
+      "state": "pending",
+      "trx_hash": "0x88fe9d249850b919bbf27f7a04bec3052a7dadf34e4747165486e989d7c96843"
+    },
+    {
+      "end_time": 1637137694,
+      "start_time": 1636878508,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1637137694,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1636742940,
+      "start_time": 1636570140,
+      "state": "queued",
+      "trx_hash": "0xba6f9f5f088470aae65603ef3e9e5d9a1cd553f4f73d430ee6e3e610e53d86de"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1636757456,
+      "state": "executed",
+      "trx_hash": "0xb50f09bf4748f93f8b87f13a15744f14e63e119137133c64a55c064ad9d188c6"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "### Simple Summary\n\nA proposal to adjust six (6) total parameters across six (6) Compound assets.\n\n### Background\n\nThis proposal is a batch update of risk parameters to align with the [Moderate risk level](https://www.comp.xyz/t/community-risk-level-consensus-check/2437) chosen by the Compound community. These parameter updates are the first of Gauntlet's regular parameter recommendations as part of [Dynamic Risk Parameters](https://www.comp.xyz/t/dynamic-risk-parameters/2223).\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/risk-parameter-updates-2021-10-25/2486)\n\n### Motivation and Specification \n\nThis set of parameter updates seeks to take the first step in level setting assets to a Moderate risk level of the protocol while making risk trade-offs between specific assets.\n\n\n| Parameter | Current Value | Recommended Value |\n| -------- | -------- | -------- |\n| AAVE Collateral Factor    | 50%     | 60%     |\n| LINK Collateral Factor    | 50%     | 60%     |\n| MKR Collateral Factor  | 35%     | 45%     |\n| SUSHI Collateral Factor    | 40%    | 45%     |\n| USDC Collateral Factor    | 75%     | 80%     |\n| YFI Collateral Factor    | 35%     | 55%     |",
+  "for_votes": "1028127.314361816135485146",
+  "id": 66,
+  "title": "Risk Parameter Updates for AAVE, LINK, MKR, SUSHI, USDC, and YFI",
+  "states": [
+    {
+      "end_time": 1636605448,
+      "start_time": 1635802911,
+      "state": "pending",
+      "trx_hash": "0x98f20ee998fff024b0e24f6988e3d1b004308f4178f1dcc73684bb3587208a0a"
+    },
+    {
+      "end_time": 1636864634,
+      "start_time": 1636605448,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1636864634,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1636484088,
+      "start_time": 1636311288,
+      "state": "queued",
+      "trx_hash": "0xee5fe60c91d0a67d5040204cadc22010e8aa7873cf015062d0689e1f0a86aa21"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1636485053,
+      "state": "executed",
+      "trx_hash": "0xdea23d13d04e4160dccc378a2564b7163eb55e7f433d593948dd2eca71843bb1"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Objective\n\nCorrect the amounts of over-accrued COMP due to the bug in Proposal 62 and fully restore the functionality of COMP rewards.\n\n## Justification\n\n[Proposal 62](https://compound.finance/governance/proposals/62) introduced a bug in the COMP distribution logic that allowed users borrowing certain assets to claim more than their intended share of COMP. \n[Proposal 64](https://compound.finance/governance/proposals/64) patched the bug introduced in Proposal 62 and disabled COMP claiming for users active in the affected markets (cSUSHI, cMKR, cYFI, cAAVE, cTUSD, and cSAI).\n\n## Details\n\nNow that proposal 64 has been executed, we're able to compile a definite list of users who have over-accrued COMP along with the exact amounts they over-accrued.\n\nThis proposal contains that exact list and calls a newly introduced one-off function - fixBadAccruals - to correct the over-accrued COMP. This function behaves the following way:\n- If the user's amount of accrued COMP is greater than the amount they over-accrued, the amount over-accrued is subtracted from their accrued amount (compAccrued).\n- If the user's amount of accrued COMP is less than the amount they over-accrued (i.e. they successfully claimed more COMP than they should have), their accrued amount (compAccrued) is set to 0 and the difference (i.e. what they owe the protocol) is saved to compReceivable. This new storage variable is only used for record-keeping at the moment.\n- An event - CompReceivableUpdated - is emitted when compReceivable is updated.\n- An event - CompAccruedAdjusted - is emitted when this function updates compAccrued.\n\nNote: Record-keeping for the users who _successfully claimed more COMP than they should have and then subsequently returned the funds_ will have to be updated in a different proposal.\n\nSince this proposal corrects all of the amounts of over-accrued COMP, the functionality of claimComp has been restored for all users.\n\nUpon execution of this proposal, Compound protocol will return to its fully functioning state.\n\n## Verification\n\nEveryone is encouraged to verify that the list of users along with their over-accrued amounts exactly matches the output of [the script](https://github.com/TylerEther/compound-tools/blob/main/scripts/proposal-62-bug/find-affected-accounts.js) used to create this list.\n\n## Review\n\nThis proposal has only been thoroughly reviewed by myself, so I urge everyone to also thoroughly review this proposal before voting on it.\n\nThe proposal has been simulated from a fork of mainnet at block #13380217. The simulation passes with the proposal behaving exactly as expected.\n\n## Credits\n\nTylerEther (me)\n\n## References\n- [Forums - Proposal 65 discussion](https://www.comp.xyz/t/proposal-65-correct-over-accrued-comp/2428)\n- [Forums - Proposal 64 analysis](https://www.comp.xyz/t/analysis-of-proposal-64/2384/2?u=tylerether)\n- [Proposal simulation](https://github.com/TylerEther/compound-protocol/blob/fix-bad-comp-accruals/spec/sim/0065-correct-bad-comp-accruals/hypothetical_mainnet_upgrade.scen)\n- [Compound tools repository](https://github.com/TylerEther/compound-tools) hosting the [script used to create the list of affected users and their over-accrued amounts](https://github.com/TylerEther/compound-tools/blob/main/scripts/proposal-62-bug/find-affected-accounts.js)\n- [Comptroller - Etherscan code](https://etherscan.io/address/0xBafE01ff935C7305907c33BF824352eE5979B526#code)",
+  "for_votes": "477533.080585013691468743",
+  "id": 65,
+  "title": "Correct Over-Accrued COMP",
+  "states": [
+    {
+      "end_time": 1634848358,
+      "start_time": 1633992164,
+      "state": "pending",
+      "trx_hash": "0x90b8e1bf9fa358973d731eff243563710323ccc5d45776cebdf3528ab500b8ee"
+    },
+    {
+      "end_time": 1635107545,
+      "start_time": 1634848358,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1635107545,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1634613599,
+      "start_time": 1634440799,
+      "state": "queued",
+      "trx_hash": "0xf276f298f87721d795877e1445c000a4cd669ff1f36b1d5a64b821e595f04153"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1634665824,
+      "state": "executed",
+      "trx_hash": "0xf7dee3a39b6620f2ef265f23ee46dd8944a955e3f369e8a42244760b7094a256"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Objective\n\nPatch the bug introduced in Proposal 62 and pessimistically allow COMP reward withdrawals until the bad COMP accruals can be fixed.\n\n## Justification\n\n[Proposal 62](https://compound.finance/governance/proposals/62) introduced a bug in the COMP distribution logic that allowed users borrowing certain assets to claim more than their intended share of COMP. \n[Proposal 63](https://compound.finance/governance/proposals/63) prevents further COMP from being distributed until the correct logic is restored but causes issues for protocols that integrated with Compound and required the claim functionality.\n\n## Details \n\nThese changes fix accurals for the affected markets (cTUSD, cMKR, cSUSHI, cYFI, cAAVE, and cSAI) and pessimistically [1] enbles COMP distribution again.\n\n[1] Only users who have not interacted with the affected markets will be able to withdraw their accrued COMP.\n\nNote: To claim COMP successfully, not only must you not have interacted with the affected markets, you must also not try claiming COMP for the affected markets.\n\nPlease use either `Comptroller#claimComp(address holder, CToken[] markets)` or `Comptroller#claimComp(address holder, CToken[] markets, bool borrowers, bool suppliers)` with **only** the unaffected markets.\n\nAfter this proposal passes, we'll have a state where we'll be able to compute an exhaustive list of users with bad COMP accrual values. From there, we'll submit another proposal to fix the bad COMP accrual values and return everything to normal.\n\n## Review\nWhile this has been tested, we will do further testing during the review period, and we implore the community to check the proposal.\n\n## References\n- [Forum Thread](https://www.comp.xyz/t/compound-proposal-63-temporary-patch-for-comp-distribution-bug-9-29-21/2327)",
+  "for_votes": "1037107.301081028821401480",
+  "id": 64,
+  "title": "Fix COMP Accrual Bug",
+  "states": [
+    {
+      "end_time": 1634023366,
+      "start_time": 1633143020,
+      "state": "pending",
+      "trx_hash": "0xee3e768e6d0a67f24003afa8d0c815c577a9f093a46a03f72f8a70d77ae04bf7"
+    },
+    {
+      "end_time": 1634282553,
+      "start_time": 1634023366,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1634282553,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1633760003,
+      "start_time": 1633587203,
+      "state": "queued",
+      "trx_hash": "0xadee4dd3160ab02a44f4ee081948f1f72dc18ba554ea73f669fd13b066243f8d"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1633760166,
+      "state": "executed",
+      "trx_hash": "0x8007c7ce98bb3afc7ac0c01d9233d89a7cdaaf3603ba7d5bc1105cdf811ca094"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "This proposal completes RFP 15: Dynamic COMP reward distribution as well as fixes a few bugs.\n\n## Split COMP rewards distribution\n\n### Problem\n\nAt the moment, the COMP rewards rate for any single market is applied at the same rate for both suppliers and borrowers. This creates undesirable market conditions such as, but not limited to, negative interest rates when borrowing various assets.\n\nAn example is the WBTC market - we want to distribute COMP rewards for suppliers, but since this distribution rate applies at the same rate for both borrowers and suppliers, we end up with WBTC being borrowed at a negative interest rate. The same applies to most non-stablecoin markets.\n\n### Solution\n\nThis proposal changes the Comptroller logic to have two different COMP distribution rates for each and every market - borrow-side (_compBorrowSpeeds_) rate and supply-side (_compSupplySpeeds_) rate.\n\nThe function `Comptroller._setCompSpeeds(CToken[],uint256[],uint256[])` is introduced to enable governance to set these differing rates.\n\nExample usage: `Comptroller._setCompSpeeds([cUSDC],[0],[1e18])` - will set the COMP rewards for supplying USDC at 0 COMP per block, and for borrowing at 1 COMP per block.\n\n## COMP rewards distribution bug fixes\n\nThis proposal fixes the following bugs:\n- Market state indices were not being set when COMP rewards are added to already active markets. [[Bug 1](https://www.comp.xyz/t/comptroller-compspeed-bug/2111)]\n- COMP rewards were distributed for periods preceding when the distribution rate is set. [[Bug 2](https://www.comp.xyz/t/comptroller-compspeed-bug/2111)]\n- Borrowers were having to poke their borrow to accrue rewards if they borrowed before rewards rates were set. [[Bug 3](https://github.com/compound-finance/compound-protocol/pull/144/commits/f6d717bb78bef0c9851ad672f7b9aa1d90b0f00a)]\n\n## Technical changes\n- `Comptroller#compSpeeds` storage variable is no longer being used and has been effectively deleted. It's replaced by `Comptroller#compBorrowSpeeds` and `Comptroller#compSupplySpeeds`. This proposal copies the current rates into the new storage variables.\n- `Comptroller#_setCompSpeed(CToken,uint256)` function has been removed and replaced by `Comptroller#_setCompSpeeds(CToken[],uint256[],uint256[])`. This new function allows COMP rewards rates for multiple markets to be set with a single call.\n- An upgrade hook initializes all non-initialized market state indices (initial index is 1e36).\n- When new markets are added, their state indices are now properly initialized (used to use lazy initialization which caused many problems).\n\n## Other notable changes\n- Depositing now uses slightly less gas after a user's initial deposit.\n- Calling `Comptroller#claimComp` unfortunately uses a lot more gas to account for uninitialized borrow state indices. It's recommended to specify which markets (and which sides) to claim COMP in rather than claiming across all markets simultaneously.\n- Flywheel tests have been updated and expanded upon to prevent the bugs fixed in this proposal from occurring again.\n- These changes have been live on the Ropsten testnet for nearly a month and everything is working as expected.\n\n## Credits\n- Arr00: initial code supporting split COMP rewards; flywheel test re-writes\n- Getty: bugs 1 and 2 diagnosis help and disclosure\n- Elee: bugs 1 and 2 diagnosis help, fixing, and disclosure\n- Coburn: bug 3 identification; test case\n- Compound Labs (especially Jared): reviewing, guidance, general help, and coordination\n- TylerEther (me): full implementation of split COMP rewards; testing infrastructure changes; bugs 1 and 2 identification, diagnosis, fixing, and disclosure; bug 3 fix; overall coordination; general testing; addition of many new test cases; proposal\n\n## References\n- [GitHub PR](https://github.com/compound-finance/compound-protocol/pull/144/)\n- [Proposal simulation](https://github.com/TylerEther/compound-protocol/blob/f73b29373eb65cedf24896d7be46eed38435fc91/spec/sim/0011-split-comp-rewards/hypothetical_mainnet_upgrade.scen)\n- [Comptroller compSpeed bug disclosure](https://www.comp.xyz/t/comptroller-compspeed-bug/2111)\n- [Forums discussion](https://www.comp.xyz/t/rfp-16-dynamic-comp-reward-distribution/2016/11)\n- [Etherscan - contract](https://etherscan.io/address/0x374abb8ce19a73f2c4efad642bda76c797f19233#code)",
+  "for_votes": "729781.739858704835438266",
+  "id": 62,
+  "title": "Split COMP rewards distribution and bug fixes",
+  "states": [
+    {
+      "end_time": 1633171062,
+      "start_time": 1632271940,
+      "state": "pending",
+      "trx_hash": "0xd58dc4303e877b1f0823cabc0a2fddab57a2379578f3e23769c4a3812cd43890"
+    },
+    {
+      "end_time": 1633430249,
+      "start_time": 1633171062,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1633430249,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1632944928,
+      "start_time": 1632772128,
+      "state": "queued",
+      "trx_hash": "0xa6df3dc2386cfcf48486d5ae720e7795bdd3c045d917f8eb59da5402ab0391a2"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1632947048,
+      "state": "executed",
+      "trx_hash": "0xc5098f8fb149262d7f26d32c0642e0e8bee5383d9df9c4988070f63a23cb9912"
+    }
+  ]
+}
+{
+  "against_votes": "6564.139589158994249864",
+  "description": "### Background\n\nFor almost two years now Gauntlet has formally and informally worked for Compound to perform [market risk assessments](https://gauntlet.network/reports/compound), contribute to [treasury management](https://compound.finance/governance/proposals/21), [optimize incentives](https://compound.finance/governance/proposals/35), calibrate [risk parameters](https://compound.finance/governance/proposals/39), and [upgrade](https://compound.finance/governance/proposals/30) the [protocol](https://compound.finance/governance/proposals/33). During that time Gauntlet has been able to refine our core models and agents specifically for autonomous interest rate protocol's like Compound.\n\nAs the protocol continues to decentralize to the community our position is that dynamic risk parameters are a vital component to growth.\n\n[Full proposal and forum discussion](https://www.comp.xyz/t/dynamic-risk-parameters/2223)\n\n### Contributor Grant \n\nGauntlet is requesting a streaming grant for continuous market risk management to optimize yield, capital efficiency, and mitigate depositor losses.\n\nSupported Risk Parameters include Collateral Factor, Close Factor, Borrow Cap, Reserve Factor, and Liquidation Incentive. Gauntlet will also develop a [Risk Dashboard](https://www.comp.xyz/t/dynamic-risk-parameters/2223#risk-dashboard-8) for the community. \n\nAt the start of every quarter for one year Gauntlet will create a proposal to update the service fee payment (higher or lower) in accordance with the formula outlined in the full proposal.",
+  "for_votes": "1480497.674234131685533717",
+  "id": 61,
+  "title": "Dynamic Risk Parameters",
+  "states": [
+    {
+      "end_time": 1633061865,
+      "start_time": 1632161499,
+      "state": "pending",
+      "trx_hash": "0x9814a72581044aaf6c9932e56bfd5da33030388ce421f6b87fc8f3923d063e78"
+    },
+    {
+      "end_time": 1633321051,
+      "start_time": 1633061865,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1633321051,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1632777806,
+      "start_time": 1632605006,
+      "state": "queued",
+      "trx_hash": "0xb6e2bac1e157a6161f127307b752fe4225e2d93f17cca6c2a9ceb4415aa12291"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1632778930,
+      "state": "executed",
+      "trx_hash": "0x0954aed798eedaa6d8bff665cac17d5b0a0b51f939b4297f2fdba9b7496221a5"
+    }
+  ]
+}
+{
+  "against_votes": "151001.751956274859588555",
+  "description": "Right now, to make a proposal, a contributor must have (or have delegated to them) 65k COMP. This threshold is a good spam deflection mechanism, but creates a burdensome hurdle for some contributors.\n\nIn additional to keeping the 65k COMP threshold, we propose including a whitelist of contributor addresses, managed by the community multisig, who will always have the right to submit proposals, regardless of the # of COMP delegated to them, relieving a pain point in the current contributor experience.\n\nArr00 wrote the updated code, wrote tests/simulations, and did a bug bounty program. The overall code change is relatively small.\n\nChanges: https://github.com/compound-finance/compound-protocol/pull/149/files\n\nForum discussion: https://www.comp.xyz/t/whitelist-of-addresses-that-can-create-proposals/1996",
+  "for_votes": "1093837.215684273910245927",
+  "id": 60,
+  "title": "Address Whitelist for Submitting Proposals ",
+  "states": [
+    {
+      "end_time": 1632206944,
+      "start_time": 1631292018,
+      "state": "pending",
+      "trx_hash": "0xe1f082f2c4c9c36015ec4eb202572a02b4c6f54ca3ba1b55df72aa8154ae2c88"
+    },
+    {
+      "end_time": 1632466130,
+      "start_time": 1632206944,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1632466130,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1631915375,
+      "start_time": 1631742575,
+      "state": "queued",
+      "trx_hash": "0x74a696e61c66561a436854ce1565caea2b7e7ddfdf4dd45bf3ded0e6ae065793"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1631917004,
+      "state": "executed",
+      "trx_hash": "0x6939e8b0affc12c7d9d96a6ca222d520a8e644424464bca6efa68c3c7eb7d819"
+    }
+  ]
+}
+{
+  "against_votes": "103285.190557947230960009",
+  "description": "**Background**  \nThis proposal seeks to compensate users affected by the [unexpected increase](https://www.comp.xyz/t/dai-liquidation-event/642) in the DAI price to $1.30 on Coinbase Pro on November 26th, 2020. A total of 85,222,475 DAI was repaid on 11/26/20. Applying the 8% liquidation penalty, this proposal would pay out a total of 6,817,798 DAI from the 16.4 million DAI in the market [reserve](https://compound.finance/markets/DAI).\n\nThank you to the Compound community and investors for the weeks of feedback, iteration and discussions that have helped craft this proposal.\n\n**Code Mechanics**  \nThis proposal utilizes a slightly modified version of the  [merkle distributor](https://github.com/arr00/compound-compensation-proposal)  used for the airdrop of Uniswap’s UNI token. The merkle tree contains the [addresses of those affected](https://github.com/arr00/compound-compensation-proposal/blob/master/scripts/generateAddressBalances.js) by the liquidation event, and was reconciled and analyzed against on-chain data from around the time of the liquidation event (block bounds 11332733 to 11335286).\n\nA relayer will claim the merkle drop for each wallet according to the distributor and distribute the DAI to user’s wallets. Users do not need to interact with any contract to claim this DAI.\n\n[@arr00](https://www.comp.xyz/u/arr00)/[arr00](https://github.com/arr00/)  is the core contributor to the code.\n\n**Next steps:**  If you support this proposal, you can delegate COMP to this autonomous proposal.\n\nTo view the full forum post, [see here](https://www.comp.xyz/t/proposal-distribute-dai-to-users-affected-by-dai-liquidations/2110).",
+  "for_votes": "1677678.174975208750121536",
+  "id": 59,
+  "title": "Distribute DAI to Users Affected in the DAI Liquidations",
+  "states": [
+    {
+      "end_time": 1632130266,
+      "start_time": 1631214389,
+      "state": "pending",
+      "trx_hash": "0x374949104300e40351486f99fd4c0c48a55a760365c59506bccf43758efd6b5b"
+    },
+    {
+      "end_time": 1632389453,
+      "start_time": 1632130266,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1632389453,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1631890140,
+      "start_time": 1631717340,
+      "state": "queued",
+      "trx_hash": "0xa21ac5eac6d5052ec70f39c560faeadf0ce18b0a34ab9279c0a7ac84f8fb7fa6"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1631904694,
+      "state": "executed",
+      "trx_hash": "0xf3074d39296f482e8c8d934e569b02393aab78da90abf98492c3db2e5d7293a8"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "Previously we established a rule that every half year we send back funds that were accidentally sent to contracts managed by Compound governance ([proposal 37](https://compound.finance/governance/proposals/37)).\n\nThere was one request that meets the requirements: the [transaction](https://etherscan.io/tx/0xbfb32d43e5a4d9a5ebc18709697cbedb1c149b282e104ce2d38ded68a8d635c0) sent 5,000 USDT to the [cDAI](https://etherscan.io/address/0x5d3a536e4d6dbd6114cc1ead35777bab948e3643) contract, after the 10% penalty applied we are sending back 4,500 USDT\n\n\nRequests can be posted on the forum link below.\n\n[Discussion](https://www.comp.xyz/t/implement-ctoken-sweeptoken-and-return-accidentally-sent-funds/1147/34)",
+  "for_votes": "905764.205247873451972719",
+  "id": 58,
+  "title": "Return Accidentally Sent Funds",
+  "states": [
+    {
+      "end_time": 1630534330,
+      "start_time": 1629593305,
+      "state": "pending",
+      "trx_hash": "0x1bac1d1cf35cf4eff7e7a00570d12057f612dfb986792408a27bd3c310dd1720"
+    },
+    {
+      "end_time": 1630793516,
+      "start_time": 1630534330,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1630793516,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1630261318,
+      "start_time": 1630088518,
+      "state": "queued",
+      "trx_hash": "0x0217bdc6d5afe29f3362646ed50f9ba9cb31208c903699a9496290ea56dfb241"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1630267986,
+      "state": "executed",
+      "trx_hash": "0x0a3fbf7600b6c70430c74901377c82225ce9f5925fee2f5eef79767dedaa6147"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "The [Pause Guardian](https://compound.finance/docs/governance#pause-guardian) is emergency functionality used to pause supply, borrowing, or liquidation in a market.\n\nThis proposal transfers guardianship from Compound Labs (which has always held this role) to Community Multi-Sig created by members of the community: [0xbbf3f1421D886E9b2c5D716B5192aC998af2012c](https://etherscan.io/address/0xbbf3f1421D886E9b2c5D716B5192aC998af2012c#code).\n\nThe Multi-Sig requires 4-of-6 signers to approve any transaction. The signer addresses can be seen [here on Gnosis Safe](https://gnosis-safe.io/app/#/safes/0xbbf3f1421D886E9b2c5D716B5192aC998af2012c/address-book), and currently include @TennisBowling, @arr00, @blck, Compound Labs, Dharma Labs (@0age), and @jared. For full context and history on the Multi-Sig, please see [this post](https://www.comp.xyz/t/community-multisig-4-of-6-deployment/134) on the Compound Community Forum.\n\nSetting the Pause Guardian address to the Community Multi-Sig will further decentralize and ensure the security of the Compound Protocol.",
+  "for_votes": "1127303.344031437927538775",
+  "id": 57,
+  "title": "Set Pause Guardian to Community Multi-Sig",
+  "states": [
+    {
+      "end_time": 1630343983,
+      "start_time": 1629399521,
+      "state": "pending",
+      "trx_hash": "0x0ccb900c5f4923fb78693f64336112aa1f5ee9436ddf50cd09130e261737015f"
+    },
+    {
+      "end_time": 1630603170,
+      "start_time": 1630343983,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1630603170,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1630151429,
+      "start_time": 1629978629,
+      "state": "queued",
+      "trx_hash": "0xb07f3b34f0153841d92865df415572709edce751400097d1ff266759c03ac842"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1630159909,
+      "state": "executed",
+      "trx_hash": "0x0b2c0c863252edf8928c269d6349a0e33ea58dbfc82a1d75d7b6fd9815c0e8ac"
+    }
+  ]
+}
+{
+  "against_votes": "30.00000000000000000",
+  "description": "Compound Proposal 53, 54, \u0026 46 added MKR, SUSHI, AAVE, YFI, \u0026 LINK to the protocol with a collateral factor of 0. Now that each market has been safely added to the protocol, it is time to set initial collateral factors. Each of the collateral factors chosen is conservative and can likely be updated in 2-3 months once the markets stabilize.\n\n[Forum thread](https://www.comp.xyz/t/add-markets-mkr-aave-sushi-yfi/1977/38?u=getty)\n\n[LINK forum thread](https://www.comp.xyz/t/add-market-link/1516/65?u=getty)\n\nMKR: 35%\nSUSHI: 40%\nAAVE: 50%\nYFI: 35%\nLINK: 50%",
+  "for_votes": "1527754.771336931871248031",
+  "id": 56,
+  "title": "Add Collateral Factors for MKR, SUSHI, AAVE, YFI, \u0026 LINK",
+  "states": [
+    {
+      "end_time": 1628709142,
+      "start_time": 1628533436,
+      "state": "pending",
+      "trx_hash": "0x56ceac43600f1fcb47aaa206b0becda65da5ea68ccc2a5f988bd66e73b428bd9"
+    },
+    {
+      "end_time": 1629749406,
+      "start_time": 1628709142,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1629749406,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1629163129,
+      "start_time": 1628990329,
+      "state": "queued",
+      "trx_hash": "0xe6f1dfb569f5841758e4967cee6315c656134c7a92eedf8c9abc8e46f3b2e540"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1629163420,
+      "state": "executed",
+      "trx_hash": "0x508fb41d92720531093f0ac8183aab74b509233c6f5680e83c10a17c15c21327"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "On behalf of Getty Hill \u0026 Eddy Lee, Polychain is submitting their proposal to add AAVE, SUSHI, and YFI to Compound. Each of these coins are blue chip tokens and widely supported in the industry. \n\n[Forum thread](https://www.comp.xyz/t/add-markets-mkr-aave-sushi-yfi/)\n\n[Simulation](https://github.com/gfx-labs/compound-protocol/tree/elee/spec/sim)\n\n[cSUSHI](https://etherscan.io/address/0x4B0181102A0112A2ef11AbEE5563bb4a3176c9d7)\n[cAAVE](https://etherscan.io/address/0xe65cdB6479BaC1e22340E4E755fAE7E509EcD06c)\n[cYFI](https://etherscan.io/address/0x80a2AE356fc9ef4305676f7a3E2Ed04e12C33946)\n\nProposal calls:\n- Add Comptroller support for cSUSHI\n- Add Comptroller support for cAAVE\n- Add Comptroller support for cYFI\n- Set the reserve factor to 25% for each market (standard parameter)\n- Add a borrow cap of 60k for AAVE (recommend by the AAVE team)\n- Add a borrow cap of 1500 for YFI",
+  "for_votes": "1407571.468205784216197260",
+  "id": 54,
+  "title": "Add AAVE, SUSHI, YFI",
+  "states": [
+    {
+      "end_time": 1627606851,
+      "start_time": 1627427168,
+      "state": "pending",
+      "trx_hash": "0x04b73b23bde12c9d7ea833fa9c4c35b0295cc324595aa2129a26e106bdced93d"
+    },
+    {
+      "end_time": 1628675209,
+      "start_time": 1627606851,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1628675209,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1628084284,
+      "start_time": 1627911484,
+      "state": "queued",
+      "trx_hash": "0x85399a79cf7a6edbd8ce2275de35334dce16f38711dfc2ae74c04314ddbad10f"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1628099595,
+      "state": "executed",
+      "trx_hash": "0xb83ddf4033f61cda65149428c1a247fe516e53d7f762b55ac64a751d1fb3d7ce"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "On behalf of Getty Hill \u0026 Eddy Lee, I am submitting their proposal to add MKR to Compound. MKR is the oldest running DeFi project and has been considered for addition since Compound V1. \n\n[Forum thread](https://www.comp.xyz/t/add-markets-mkr-aave-sushi-yfi/)\n\n[Simulation](https://github.com/gfx-labs/compound-protocol/tree/elee/spec/sim)\n\n[cMKR](https://etherscan.io/address/0x95b4eF2869eBD94BEb4eEE400a99824BF5DC325b)\n\n[New oracle](https://etherscan.io/address/0x6D2299C48a8dD07a872FDd0F8233924872Ad1071) with MKR, AAVE, SUSHI, and YFI prices. \nChainlink has initiated the ownership transfer of the UAV to the community multisig. \n\nThis proposal initiates cMKR with a 25,000 MKR borrow cap, which reduces the risk of governance attacks and the systemic risk of DeFi.",
+  "for_votes": "1434818.310508543724438550",
+  "id": 53,
+  "title": "Add MKR Support",
+  "states": [
+    {
+      "end_time": 1628323012,
+      "start_time": 1627329718,
+      "state": "pending",
+      "trx_hash": "0x969b1c166d486967baa423b57ca1aea8d1c045dc6ecaaff96892c91ee1d8ce76"
+    },
+    {
+      "end_time": 1628582199,
+      "start_time": 1628323012,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1628582199,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1627955622,
+      "start_time": 1627782822,
+      "state": "queued",
+      "trx_hash": "0x8369f8603be1c4aa392969b88da6ada213366407f567abc8e8a0925c4372e563"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1627957280,
+      "state": "executed",
+      "trx_hash": "0xbaa41f11e7f06d003f442aa45be3a7671e59ecc9aeeee4752f11c005e8ca2295"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "Governance Bravo presents the ability to update governance parameters. Here, we alter the amount of COMP needed by a CAP or COMP address to push a governance proposal to a vote.\n\nWhile this 65k threshold only enables 1 additional EOA to propose, it makes the CAP process considerably easier to navigate for community contributors. Over time, this threshold may be reduced further, but this is a conservative \u0026 meaningful step in the right direction.\n\nThis proposal stems from discussion started by arr00: https://www.comp.xyz/t/lower-proposal-threshold/1659",
+  "for_votes": "1320658.606179835934182602",
+  "id": 52,
+  "title": "Lower Proposal Threshold to 65,000 COMP",
+  "states": [
+    {
+      "end_time": 1626710691,
+      "start_time": 1625672601,
+      "state": "pending",
+      "trx_hash": "0xbdae11d1ec2f54a310eaa884282a5c23b99143917f598c35bbd738364c463cec"
+    },
+    {
+      "end_time": 1626969877,
+      "start_time": 1626710691,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1626969877,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1626292235,
+      "start_time": 1626119435,
+      "state": "queued",
+      "trx_hash": "0xa94bde01beea104057231cf0c06002594614d2a1bed6e05fce58c4d48a569189"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1626294260,
+      "state": "executed",
+      "trx_hash": "0x849061327963a1de927a1cccffaed34631a3962b272a7efbf0caef945fb4e7d3"
+    }
+  ]
+}
+{
+  "against_votes": "14797.280534837564527308",
+  "description": "### Background\nOver the last 6-months, Getty Hill has worked to improve Compound’s oracle system; he coordinated [Proposal 47](https://compound.finance/governance/proposals/47), a months-long effort to harden the Compound price feed, which met the highest possible standard demanded by the Compound community.\n### Contributor Grant\nGetty requested an streaming grant for his prior and future efforts to coordinate oracle development;\n\u003e While the major update has been made, more work is still needed. We still need to transition the Uniswap anchor from v2 to v3, support additional markets, [ongoing monitoring](http://defialerts.io/oracle), and further research the system’s efficiency. The recent milestone is the beginning of a more vigilant and efficient Compound.\n\u003e I am requesting a 0.000214 [Contributor Comp Speed grant](https://compound.finance/governance/proposals/30) from the protocol. Over the last 6-months, I acted as the project manager for the oracle improvement. I researched a myriad of options, worked closely with the Chainlink team, managed community feedback and input, championed the project, and most importantly, got it through governance. The ongoing contributor grant will be for the work I have done to get the oracle improvement in place and to manage it going forward.\nThis Contributor Grant will be used to carry on the work of improving the price feed, and represents the first streaming COMP grant. The grant runs in perpetuity until modified by governance.\n[Discussion](https://www.comp.xyz/t/oracle-contributor/1887)",
+  "for_votes": "882589.979921071141934046",
+  "id": 51,
+  "title": "Contributor Grant: Getty Hill",
+  "states": [
+    {
+      "end_time": 1626642219,
+      "start_time": 1625602191,
+      "state": "pending",
+      "trx_hash": "0xb908fc9424b7b961a76dc1fb52cc1239d4a0408884babf22319e058fe36801b5"
+    },
+    {
+      "end_time": 1626901405,
+      "start_time": 1626642219,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1626901405,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1626221073,
+      "start_time": 1626048273,
+      "state": "queued",
+      "trx_hash": "0x06bdeb7bc1a3c3278e4b4743982e8cf15d90a454c721776ab809cb22df50a575"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1626228100,
+      "state": "executed",
+      "trx_hash": "0x42dbbd8067e633b332fe855d092ad54958deaa2420a955d57afe0813f1988e2c"
+    }
+  ]
+}
+{
+  "against_votes": "0.00100000000000000",
+  "description": "This proposal is a patch, developed by Compound Labs, which updates the base cToken implementation contract, and adopts it across all upgradable markets.\n\n### Changelog\nThe `seize` function has been modified to transfer 2.8% of a liquidation to cToken reserves, reducing the risk of cascading liquidations that could render the protocol insolvent. With each liquidation, the protocol’s ability to recover (or utilize reserves) increases.\n\nGiven the proliferation of COMP-like governance tokens, the `delegate` function has been merged into the base cToken implementation.\n\n### Adoption\nThe seven upgradable cTokens, deployed starting 18 months ago, currently rely on five different cToken implementation contracts, many of which lack the most modern features.\n\nThis proposal unifies all upgradable cTokens with a single implementation, which reduces the surface area of technical debt, and slightly reduces gas costs.\n\n### Development\nThis patch was developed publicly, coupled with completed scenario analysis. In addition to the Compound Labs bug bounty program, a secondary bug bounty was offered through [Immunefi](https://immunefi.com/bounty/compound/).\n\nDuring the review period for [Proposal 048](https://compound.finance/governance/proposals/48), community member pyggie identified potential improvements to the cToken event logs and public interface; these have been included in this proposal, alongside a bounty of 30 COMP for their efforts.\n\n[Discussion](https://www.comp.xyz/t/safety-and-gas-patches/1723)",
+  "for_votes": "1129591.362081147422906842",
+  "id": 49,
+  "title": "Update and Standardize cToken Implementation",
+  "states": [
+    {
+      "end_time": 1625306522,
+      "start_time": 1624234342,
+      "state": "pending",
+      "trx_hash": "0xc4149b366c555d019ddc65d44e9679f7196af97808641d2689f268ac72d77feb"
+    },
+    {
+      "end_time": 1625565708,
+      "start_time": 1625306522,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1625565708,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1624905336,
+      "start_time": 1624732536,
+      "state": "queued",
+      "trx_hash": "0x950a8e41115fb2710f6a27a14e97c225b2c2fe751cd5f4da3ce4f116f549b922"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1624909979,
+      "state": "executed",
+      "trx_hash": "0x694de552980bc831eaf3c44dc4f8107fba6823e3a1293ea3a4816c309ea8eb39"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "## Introduction\n\nThis proposal will change the current oracle system from using Coinbase as the primary reporter of prices to Chainlink [Price Feeds](http://data.chain.link). Uniswap v2 is still used as an anchor (circuit breaker) and the anchor deviation window will change from 20% to 15%. As a precaution, the community multisig has the ability to engage a failover that will switch a market’s primary oracle from the current Price Feeds to Uniswap v2.\n\n### Proposal Call\n\nChange the Comptroller oracle from [0x4007B71e01424b2314c020fB0344b03A7C499E1A](https://etherscan.io/address/0x4007B71e01424b2314c020fB0344b03A7C499E1A) to [0x841616a5CBA946CF415Efe8a326A621A794D0f97](https://etherscan.io/address/0x841616a5CBA946CF415Efe8a326A621A794D0f97)\n\n### Oracle Update Details\n\nEach asset supported on the Compound market has a corresponding USD-paired price feed reference contract and a validatorProxy contract (which allows for the UniswapAnchorView (UAV) oracle contract to be updated by the community as new markets are added). When the reference contract of a Price Feed is updated by a decentralized network of oracle nodes with a new aggregated price value, the transmitter of that data also calls the validate() function on the market’s validatorProxy contract. When this function is called, the validatorProxy calls validate() on the UAV, which queries Uniswap v2 to check if the new price is within the Uniswap v2 TWAP anchor. If valid, the UAV is updated with the asset’s price. If invalid, the price data is not stored. Additional details on this process can be found in this comment [here](https://www.comp.xyz/t/oracle-infrastructure-chainlink-proposal/1272/55) on the Compound forum.\n\n[Here](https://aws1.discourse-cdn.com/standard17/uploads/compoundcommunity/original/1X/7033ce2e313f56c40441ba6dd9d900b0c2b244a7.png) is a visual example of how BAT/USD price feed is used, though this flow is the same for all asset markets.\n\nThe frequency of updates for each price feed depends on two triggers:\n\n* Deviation threshold - when the off-chain price of an asset is witnessed to have moved more than x% of the previously reported price, an on-chain update is initiated.\n\n* Heartbeat threshold - If x minutes have passed without an update, a new on-chain update is initiated.\n\nMore information can be found on [data.chain.link](http://data.chain.link/). Example: [ETH / USD](https://data.chain.link/eth-usd).\n\nPrice update events can be witnessed on the[ Etherscan events tab](https://etherscan.io/address/0x841616a5CBA946CF415Efe8a326A621A794D0f97#events).\n\nThe UniswapAnchorView token configuration has two additional fields: reporter \u0026 reporterMultiplier.\n\n* reporter: The address that submits prices for a particular cToken. This is always a ValidatorProxy contract that is always called by a price feed reference contract for each relevant price update posted by oracle nodes. In this case, 0xeBa6F33730B9751a8BA0b18d9C256093E82f6bC2 is the reporter of the price of BAT.\n\n* reporterMultiplier: Used to transform the price reported by the price feeds to the correct base unit that the UniswapAnchoredView expects. This is required because the price feeds report prices with different decimal placement than the UniswapAnchoredView.\n\nAudit report: Trail of Bits was commissioned for audit of the contracts.[ToB Audit report](https://drive.google.com/file/d/1TsOXhBLenStjdd2mxF1Sfmmh_Na9X527/view?usp=sharing)\n\nForum discussion and additional details: [Oracle Infrastructure: Chainlink Proposal](https://www.comp.xyz/t/oracle-infrastructure-chainlink-proposal/1272)\n\n#### Why\n\nIn late January I wrote on the [forum](https://www.comp.xyz/t/building-a-medianizer/1031) “Compound NEEDS to improve the current oracle infrastructure as a matter of safety and growth. I think it is evident to users that the current solution is not ideal and not close to ideal. The event that occurred in November with Dai liquidations was preventable….In addition to preventing the November event from transpiring again, I think it is also in the protocol’s best interest to improve the oracle situation so Compound can safely support more assets.”\n\nFive months, two forum threads, 114 forum replies, numerous calls, countless messages, and finally, we have a robust solution to improve the oracle system. This has been a long process, going over and re-reviewing many nuanced details with the community. Building in public is not always easy, but it was an insightful process and I am excited to see more assets on Compound. I look forward to continuing to improve the oracle system as the crypto landscape changes.",
+  "for_votes": "1171478.220337298490118514",
+  "id": 47,
+  "title": "Oracle Improvement",
+  "states": [
+    {
+      "end_time": 1624782876,
+      "start_time": 1623700406,
+      "state": "pending",
+      "trx_hash": "0x4d40f1ba30bb3016bf9fac34dd945844276bc778402fac578c44efd1dbe29248"
+    },
+    {
+      "end_time": 1625042062,
+      "start_time": 1624782876,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1625042062,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1624314136,
+      "start_time": 1624141336,
+      "state": "queued",
+      "trx_hash": "0x81ccad47b8996b35b9ff9f58fee85168188ad74394c3755c3e34c071c51cd583"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1624314531,
+      "state": "executed",
+      "trx_hash": "0x0b887d7398ab86f1dacb7e3cc18f400f29df800c8439c61878da26e71fd860ef"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "This proposal adds [TrueUSD](https://etherscan.io/token/0x0000000000085d4780B73119b644AE5ecd22b376) as a supported asset.  \n \nTUSD is a 1:1 US dollar backed stablecoin. TUSD is the only stablecoin that has [real-time, 24/7 attestations](https://real-time-attest.trustexplorer.io/trusttoken) from Armanino, a top US accounting firm, providing assurance that the token is fully collateralized by US Dollars. \n \n## Market Parameters \nThis proposal sets TUSD with a collateral factor of 0%, reserve factor of 7.5%, and unlimited borrow cap. These parameters follow the values set by USDT, with 0% collateral factor. The collateral factor can be proposed to be higher with a future proposal. \n \n This proposal updates the Compound price feed to peg TUSD to $1, similarly to USDC. By using a peg, weakness in the underlying asset will not change collateral requirements for users borrowing TUSD.\n \n[The interest rate model](https://etherscan.io/address/0xfb564da37b41b2f6b6edcc3e56fbf523bd9f2012) for TrueUSD relies on the same model as cUSDT and cDAI, JumpRateModelV2. \n \n## Contracts \ncTUSD is an upgradeable cToken contract that has been modified to accommodate potential transfer fees in the underlying token. \n \nThe cToken contract has been reviewed by OpenZeppelin and the Compound team. The cTUSD contract has been reviewed by the TrustToken and Ethworks teams. \n \nThe case for why TUSD benefits compound has been discussed by the [compound community here](https://www.comp.xyz/t/trueusd-listing-proposal-stay-tuned/1490)",
+  "for_votes": "1059354.722331519204124557",
+  "id": 45,
+  "title": "Add TUSD Support",
+  "states": [
+    {
+      "end_time": 1622109954,
+      "start_time": 1620979620,
+      "state": "pending",
+      "trx_hash": "0x0ede3b8a5de15772fcb032ef576d4569eeff93d5e4db71b6979f2fa26acbe6c8"
+    },
+    {
+      "end_time": 1622369141,
+      "start_time": 1622109954,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1622369141,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1621613289,
+      "start_time": 1621440489,
+      "state": "queued",
+      "trx_hash": "0xf6cb5fb21bae59d6f7f65658165a1a2df71c28e0ff07f48a2d4391f06f9d80b0"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1621618907,
+      "state": "executed",
+      "trx_hash": "0x2ecc4f0e36bd8146ad6ae9375033bbdde32f23d9cdac387440bc737ca30b31f0"
+    }
+  ]
+}
+{
+  "against_votes": "5000.00000000000000000",
+  "description": "Following the upgrade to the [Governor Bravo](https://compound.finance/governance/proposals/42), it's now possible to update the parameters of the Governance system.\n\nOver the past year, a recurring request has been a [formal analysis period](https://www.comp.xyz/t/formal-analysis-period-for-larger-proposals/70) before proposals enter the voting state. This would allow the community and developers additional time to audit new contracts and proposals for errors, and users the opportunity to move COMP or delegations prior to a vote commencing.\n\nThis proposal updates the proposal [voting delay](https://compound.finance/docs/governance#voting-delay) from 1 block to 13140 blocks (2 days), and the voting period from 17280 blocks (2.63 days) to 19710 blocks (3 days). These parameter changes will improve the community’s ability to prepare for votes and increase the security of the protocol.",
+  "for_votes": "1367841.964900760752685033",
+  "id": 43,
+  "title": "Governance Analysis Period",
+  "states": [
+    {
+      "end_time": 1619364287,
+      "start_time": 1618369221,
+      "state": "pending",
+      "trx_hash": "0xe34419e8d64845b5fb920ce265d23c14def48de2bc09e4159fce5e09a819a56e"
+    },
+    {
+      "end_time": 1619591519,
+      "start_time": 1619364287,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1619591519,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1618779737,
+      "start_time": 1618606937,
+      "state": "queued",
+      "trx_hash": "0xa98d3b7ec928f540052717a33c9f642ab575502fd9c1a87b36de1f6db9859fe8"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1618785180,
+      "state": "executed",
+      "trx_hash": "0xbd7e9da57c31931f54c05679a31bb51232b0f2ee3f5fbde53f3c7c7f02b2a480"
+    }
+  ]
+}
+{
+  "against_votes": "1.00000000000000000",
+  "description": "### Introduction\nGovernor Bravo has been a community effort for the past few months to bring governance to the next stage. This proposal transfers Compound governance to the new Governor Bravo contract. If this proposal is successful, all future Compound governance calls should be sent to [Governor Bravo](https://etherscan.io/address/0xc0da02939e1441f497fd74f78ce7decb17b66529).\n\n### Proposal Calls\nThe first two calls reimburse Compound Labs $27k that was paid to Open Zeppelin for the audit from the cUSDC reserves. The following two calls award COMP bounties to Arr00 and Blurr for organizing and executing the Governor Bravo project. The following call sets Governor Bravo as the pending admin, and the last call initiates Governor Bravo, accepting the Timelock admin.\n\n### Governor Bravo Details:\nGovernor Bravo has been developed by members of the community in the open for the past few months. The new contracts have been fully audited by Open Zeppelin, are fully covered by extensive test suites, have been simulated by forking simulations, and have been running on the kovan testnet. \n\nThe new features are as follows:\n- Upgradable implementation \n- Settable parameters (proposal threshold, voting period, voting delay)\n- Abstain vote option\n- Optional string voting reason\n- Proposer can always cancel their proposal (until execution)\n- Removal of the guardian\n- Continuous proposal id logic\n\n#### PS:\nTo celebrate the alphas who voted on Governor Alpha, we will be releasing a limited edition Compound NFT claimable by anyone who voted meaningfully on Governor Alpha prior to this proposal once Governor Bravo is initiated.\n\n#### References:\nDevelopment forum [post](https://www.comp.xyz/t/governor-bravo-development/942)\nProposal forum [post](https://www.comp.xyz/t/governor-bravo-proposal/1384)\n[Github PR](https://github.com/compound-finance/compound-protocol/pull/91)\n[Open Zeppelin Audit](https://blog.openzeppelin.com/compound-governor-bravo-audit/)",
+  "for_votes": "1438678.862814169453983519",
+  "id": 42,
+  "title": "Migration to Governor Bravo",
+  "states": [
+    {
+      "end_time": 1617698773,
+      "start_time": 1616687915,
+      "state": "pending",
+      "trx_hash": "0x8837bb71270c3bf20524c3200ed14ccfaadb8dc96be360310eb91c44cd4fdcc8"
+    },
+    {
+      "end_time": 1617926005,
+      "start_time": 1617698773,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1617926005,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1617102030,
+      "start_time": 1616929230,
+      "state": "queued",
+      "trx_hash": "0x8b4bafce99a85b60b3e2008ec9b11f50a0187a65d683332932d7d103a0b79442"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1617104284,
+      "state": "executed",
+      "trx_hash": "0x88c07d09327092bf912d7ce81846f75293d6d5d0d7e52d2f5f9eaaf23223b0e4"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "This proposal begins the [migration of legacy cToken contracts to the latest cToken contracts used by the protocol](https://www.comp.xyz/t/managing-ctoken-versions/1220), starting with the WBTC market.\n\nThe next-generation cTokens have two years of development \u0026 feature advantages over their immutable counterparts. Standardizing the protocol to use the latest cTokens will reduce \"tech debt\" and allow us to roll out new features to all markets.\n\nWBTC was chosen as the first market to upgrade because of its recent proposal, which highlighted the need to be able to de-risk the market with new features (like supply caps, and protocol liquidation fees). After this migration, the community can proceed with upgrading BAT, ZRX, USDC, and finally ETH.\n\n### Upgrade Process\nA new WBTC cToken has been deployed, using the latest upgradable cToken contract and implementation. This proposal *supports* the new market, then *switches* the COMP Distribution from the prior market, to the new market. The market then inherits a 65% Collateral Factor, to match the legacy market.\n\nThe new WBTC cToken uses a modern interest rate model, that governance can update the parameters for. Initially, the parameters are set to an inflection point at 80% utilization, and a maximum interest rate of 40%, which resembles the legacy market.\n\nThe two WBTC markets will run in parallel, with users incentivized (but not required) to begin using the new contracts. When the legacy market is small enough, it can be deprectated like SAI and REP.\n\n### Contracts\n\nThe new cWBTC contract, and its implementation, rely on existing cToken contracts; no code was modified for this proposal, though new contracts were deployed, and peer reviewed.\n\nDiscussion: [comp.xyz](https://www.comp.xyz/t/legacy-market-migration-wbtc/1333)",
+  "for_votes": "474890.150980074587257730",
+  "id": 41,
+  "title": "Legacy market migration: WBTC",
+  "states": [
+    {
+      "end_time": 1616783625,
+      "start_time": 1615760755,
+      "state": "pending",
+      "trx_hash": "0xe8820236543701ce61abf254df64eaf994355f0623efa0f393a42be144e2ac7a"
+    },
+    {
+      "end_time": 1617010857,
+      "start_time": 1616783625,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1617010857,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1616165380,
+      "start_time": 1615992580,
+      "state": "queued",
+      "trx_hash": "0x4b20fde5b3c788236e940b8dfcffbf94c27da8ad7d904b2ca6e3333502e68a75"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1616165654,
+      "state": "executed",
+      "trx_hash": "0xa9d9a710ec465fb742346bff8169acf3defae1722b6ca61589006dd6b7e9c374"
+    }
+  ]
+}
+{
+  "against_votes": "0.19430582000000000",
+  "description": "**Summary**\n\nWe propose to start a program called the Compound Grants Program (“CGP”), which will provide funding to projects, ideas, and events that benefit Compound and its stakeholders. If approved, funding for the program will come from Compound’s [treasury ](https://etherscan.io/tokenholdings?a=0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b), which currently holds ~200k COMP (~$95mm as of 03/01/21). As a reminder, the treasury currently accrues 0.5 COMP per block, spends 0.352 COMP per block on liquidity incentives, and saves the balance of 0.148 COMP per block for governance by tokenholders.\n\nThe program will be a pilot. For this reason, we believe it’s prudent to limit the program’s dollar value to $1mm per quarter and the length to two quarters for a cost of $2mm (4,444 COMP) over six months.\n\nSince it’s not practical to solicit a community vote for every disbursement, we propose forming a small and nimble committee that has the power to administer the grants at its own discretion (limited by the aforementioned dollar and length caps). We suggest forming a committee of eight members: one lead member to head the program and seven reviewing members to review the lead’s work and assist with program operations. The committee will operate with a 4 of 7 multi-sig (only reviewers will be part of the multi-sig).\n\nAs compensation for administering the program, we propose the lead be paid $5k upfront and $100 per hour thereafter with a cap of 30 hours per week for a maximum compensation of $83k (184 COMP). In total, we are asking for a maximum of ~5,000 COMP to fund the grants (4,444 COMP), program setup and operational costs (444 COMP), and compensation for the program lead (184 COMP). All unspent funds will be returned to the community treasury at the conclusion of the CGP.\n\n**Purpose**\n\nDecentralized projects are living and breathing communities with a variety of stakeholders. These stakeholders include project team/contributors, tokenholders, users, partners, and for certain projects, liquidity providers. The goal for the CGP is to nurture Compound’s ecosystem to benefit all of these stakeholders. To be more specific, the grants program aims to:\n\n* Grow Compound’s ecosystem by funding development happening on top of it. Funding development focused on helping Compound grow is critical to the project’s long-term success.\n* Fund ideas that benefit Compound that would otherwise not receive funding. Many good ideas are left unexplored because they fail to receive funding. We intend to make sure as few good ideas as possible are underfunded or unfunded.\n* Strengthen goodwill by providing funding for community-led ideas. Funding projects, ideas, and events brought forth by community members will encourage more active participation by the community. It will have the added benefit of nourishing goodwill. A well-nourished goodwill keeps community members loyal and happy, which in turn, encourages new members to join what they see is a thriving community.\n\n**Program Scope**\n\nThe CGP was heavily inspired by the [Uniswap Grants Program ](https://gov.uniswap.org/t/rfc-uniswap-grants-program-v0-1/9081) (“UGP”), which received approval from the community to deploy a maximum of $750k per quarter for two quarters. It’s difficult to deploy a meaningful amount of money to ecosystem grants without compromising on quality. While we believe all of these ecosystems will be enormous in the future, it’s important for us to be practical today by matching the grants budget to the size of the ecosystem.\n\nTo that end, the pilot program will deploy a maximum of $1mm per quarter and run for two quarters. We have no way of knowing whether this amount of money is overshooting or undershooting the needs of the ecosystem — we will only find out *after* running the experiment. For example, if we find out $2mm is not enough money to fund all of the high quality opportunities, we as a community may decide we need to create a larger allocation for grants. On the flipside, if we find out $2mm is too much, all unspent funds will be returned to the community treasury for use at a later time.\n\nAs part of the program, our intention is to fund projects, ideas, and events that *directly* benefit Compound and its stakeholders. While there may be opportunities to fund projects, ideas, and events that *indirectly* benefit Compound, these opportunities fall outside the scope of this program.\n\nNot all opportunities applying for grants will benefit the Compound ecosystem equally. To help us prioritize which ideas to fund, we propose the following buckets:\n\n*High priority*\n\n* Protocol and parameter development. Apart from acts of stewardship and generosity, there is little to no incentive for community members to propose technical updates to the protocol. With no carrot with which to motivate community members to propose changes, the protocol isn’t able to innovate as quickly as it should be innovating in a dynamic and competitive market. We should note that in a minority of cases community members did receive payment for work done (for example, see the work done by Gauntlet on the [COMP Contributor Grants ](https://compound.finance/governance/proposals/30) proposal), although here too, the incentive to contribute was not well-designed since it required Gauntlet to front audit and development costs before knowing the proposal to pay them would pass. To encourage community members to propose changes, the CGP will fully or partially pre-fund development and audit costs. In doing so, we hope to encourage more proposals, which will lead to more innovation and as a result, a far better Compound for all of us.\n* Code audits. Making technical updates to the protocol is risky business: smart contracts are immutable and control billions of dollars in user funds. An error in a technical update can have serious consequences. Because of this, it is considered best practice to have an auditor review the proposed update for soundness prior to its submission. Unfortunately, these audits are [expensive ](https://www.comp.xyz/t/compound-contributor-grants/756/6), particularly for individual contributors who need to pay for them out of pocket. We intend to provide grants that pre-fund audit costs for soon-to-be proposals. We hope this will encourage more individual contributors to propose technical updates to the protocol.\n* Business development / integrations. A greater amount of liquidity makes Compound a better product for all users. To grow liquidity, Compound should be integrated with as many applications as possible. To that end, we aim to fund integrations that grow usage of Compound. In funding integrations, we will effectively be funding the business development function for the protocol.\n* Advertising and sponsorships. It will be important to get the word out there about this program. The more people there are that know about the CGP, the more applications we should expect to receive. To spread the word about the program, we will spend funds to advertise the CGP on podcasts, newsletters, and other mediums that attract the audience we want to attract.\n\n*Medium priority*\n\n* Hackathons. It’s very likely that there exist uses for Compound that haven’t been explored yet. Hackathons are a fantastic way to explore design spaces, and the CGP intends to sponsor them.\n* Bounties. This one speaks for itself: bug fixes and minor protocol updates will be covered by the CGP.\n\n*Low priority*\n\n* Miscellaneous improvements. It’s difficult to know ahead of time all of the grant applications that will come through. Just because an application does not fit neatly into one of the above buckets doesn’t mean it’s not valuable to the Compound ecosystem. So long as an application benefits Compound directly, we will consider it for a grant.\n* Applications for miscellaneous improvements to Compound fall into this bucket. Because the scope of this bucket is broad, we consider it to be low priority compared to the narrowly scoped buckets above.\n\nWhile we did our best to prioritize items among each of the three buckets, we are confident that the above list is not all-inclusive. We expect to receive grant applications for phenomenal ideas that we simply can’t think of today. The committee asks the community for the right to exercise discretion to fund ideas that are beneficial to Compound but are not part of the scope outlined above.\n\n**Process and Timeline**\n\nIf approved, the program will begin shortly after this proposal passes and end six months following the start of the program. (In other words, if the proposal passes on 3/15/2021 and begins on 3/22/2021, it will end on 9/22/2021). The program will run on a rolling process: we will welcome applications at any point in time during the program length! We will stop accepting applications two weeks before the end of the program (during these two weeks, we will start wrapping the program up, which will include evaluating the last of the applications and returning unspent funds to the treasury).\n\nWe will source potential grants via an applications process. (We will be sharing the application soon after this proposal passes).\n\nOnce an application is received, CGP committee members will discuss the application and evaluate it in the context of its benefit to Compound and its stakeholders. If the committee approves the application, funds will be paid out to the receiving party on the timely basis. If the committee does not approve the application, the soliciting party will be notified as to why the application was not approved and, if applicable, what steps need to be taken to have the application approved in the future. All approved grants and their amounts will be disclosed to the community publicly and on a timely basis.\n\nFinally, a member of the CGP committee will participate in the bi-weekly Compound community developer calls. We will attend the call, listen to what the community thinks should be funded, and present some of the newly funded grants.\n\n**Committee Members**\n\nThe CGP committee will consist of eight members: one lead and seven reviewers. We believe the best committees share two features: first they must be capable, and second they must be motivated to actively participate. We believe this committee shares these two vital features.\n\n*Lead*\n\n[Larry Sukernik ](https://twitter.com/lsukernik) (Sheepshead Bay, LLC)\n\n*Reviewer*\n\n[Getty Hill ](https://twitter.com/getty_hill) (Grapefruit Trading)\n\n*Reviewer*\n\n[Aparna Krishnan ](https://twitter.com/aparnalocked) (Opyn)\n\n*Reviewer*\n\n[Monetsupply ](https://twitter.com/monetsupply) (Independent)\n\n*Reviewer*\n\n[Min Teo ](https://twitter.com/_minteo) (ConsenSys)\n\n*Reviewer*\n\n[Leighton Cusack](https://twitter.com/lay2000lbs) (PoolTogether)\n\n*Reviewer*\n\n[Jesse Walden ](https://twitter.com/jessewldn) (Variant)\n\n*Reviewer*\n\n[Nick Cannon](https://twitter.com/inkymaze) (Gauntlet)\n\nThe lead will be tasked with managing and operating the program while reviewers will have a duty of holding the lead accountable. To guarantee accountability, the committee will operate with a 4 of 7 multi-sig managed by the reviewers (note that the lead is not part of the multi-sig). In other words, four out of seven reviewers will need to sign the transaction for a grant to be approved and disbursed.\n\n**Committee Compensation**\n\nWe propose the lead be paid $5k upfront and $100 per hour thereafter with a cap of 30 hours per week for a maximum compensation of $83k (~184 COMP). Since the majority of the work will be performed by the lead, they will be the only committee member to receive payment as part of the program pilot. Payments to the lead will be approved by the reviewers and made according to the following schedule: $5k upfront, with the balance paid at the end of each quarter (i.e., if the program begins on 3/22/21, the lead will be paid $5k on 3/22/21, and the again on 6/22/21 and 9/22/21 based on hours worked).\n\nThe funds for both the program and the lead’s pay will be allocated to the CGP multi-sig from the Compound treasury. Running the CGP will come with setup and operational costs; we will set aside approximately 10% of the CGP budget to cover these costs. All unspent funds will be returned to the community treasury at the conclusion of the CGP.\n\n**What Does Success Look Like?**\n\nWe expect success to come in two forms: one that’s measurable and the other that’s of the “you know it when you see it” type.\n\nMeasurable success metrics:\n\n* Number of projects, ideas, and events funded\n* Community engagement (e.g., increased activity on forums, Discord, and so forth)\n* Increase in number of applications\n\n“Know it when you see it” success metrics:\n\n* Improved sentiment and goodwill within the community\n* Improvement to Compound’s brand and positioning in the market\n\n**Conclusion**\n\nIf approved, the CGP will begin accepting applications for grants on a rolling basis shortly after its approval. To assist with the evaluation of potential grants, each grant will be classified into three buckets: high, medium, and low. High priority grants will be funded first; medium priority grants will be funded second; low priority grants will be funded last.\n\nThis program is a pilot. As such, we intend to keep the budget lean for a maximum disbursement of 5,000 COMP over six months across grants, setup and operational costs, and lead compensation. Make no mistake: this is an experiment. If the CGP works, Compound may want to graduate the program from a pilot to a full-time endeavor. If it doesn’t work, we will learn why it didn’t work and what should be done differently. Most of us are COMP holders here. That gives the privilege to try something that’s never been tried before at a meaningful scale: to let the test subjects run the experiments.",
+  "for_votes": "1580817.491279602717254205",
+  "id": 40,
+  "title": "Compound Grants Program",
+  "states": [
+    {
+      "end_time": 1616367336,
+      "start_time": 1615339327,
+      "state": "pending",
+      "trx_hash": "0x593315f6d59bf4bdf3ee0766194efa179d6e02782aee7a3b28fc6aff76e815a5"
+    },
+    {
+      "end_time": 1616594568,
+      "start_time": 1616367336,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1616594568,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1615744597,
+      "start_time": 1615571797,
+      "state": "queued",
+      "trx_hash": "0xf83ddea2294c27b3305f03ee889e46975af161bdb58e921b89a07496e24dfa22"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1615747364,
+      "state": "executed",
+      "trx_hash": "0x9e4b91d4442b32bccc7f7641741d36b9ba4a59114421bfe90cc9c955e0c0babc"
+    }
+  ]
+}
+{
+  "against_votes": "5001.436849206312095434",
+  "description": "This proposal acts to establish a policy for returning accidentally sent funds accessible by Governance under the following terms. \n\n- Sender must verify their identity through a signature or on-chain calldata and request return of funds on the compound forums within 6 months of accidental transfer\n- Funds will only be returned to the originating address\n- A 10% penalty will be imposed\n- The sent funds must have a minimum value of $1,000 at the time of the post\n- At most, once every six months, a proposal will be made that returns all funds eligible under these terms\n\nCurrently, there is one eligible transaction, and this proposal acts to return the locked funds under the terms stated above. In order to do so, we must set a new implementation for cUNI which adds the `sweepToken` functionality. It additionally removes unused verify callbacks resulting in minor gas savings on most interactions. This code change was developed in the open and reviewed by community members. Full testing has been done including unit tests and forking simulations. Due to the limited scope of the changes, they have not been professionally audited.\n\nThe last call grants Arr00 30 COMP for organizing this process and completing the necessary code changes.\n\n[Discussion](https://www.comp.xyz/t/implement-ctoken-sweeptoken-and-return-accidentally-sent-funds)\n[New cUNI Implementation](https://etherscan.io/address/0xa1849880593E96d2f7dF77D0D38a7f2372aE10E0#code)\n[GitHub PR](https://github.com/compound-finance/compound-protocol/pull/97)\n[Accidental transfer](https://etherscan.io/tx/0x3d4d8248b1f80d436f1afddcbe6a1380b7417dfb602ca7e6cf5cb0d546a3afed)",
+  "for_votes": "1046375.043782175520416009",
+  "id": 37,
+  "title": "Return Accidentally Sent Funds",
+  "states": [
+    {
+      "end_time": 1612845780,
+      "start_time": 1612845774,
+      "state": "pending",
+      "trx_hash": "0xe6bbc306a875214a96eaead8bc8106468543ac2d1033cbfc4e0a94d16f246950"
+    },
+    {
+      "end_time": 1614127563,
+      "start_time": 1612845780,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1614127563,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1613251058,
+      "start_time": 1613078258,
+      "state": "queued",
+      "trx_hash": "0x3e2bd85ceb250ef2aea5e778508c09fd5788edc34706c69cae385a95d572deab"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1613269115,
+      "state": "executed",
+      "trx_hash": "0x6f92935835ad9ca0ffdecbf02c84e8420f5017fdd538a791509f32f700f687ab"
+    }
+  ]
+}
+{
+  "against_votes": "278.679413590539825594",
+  "description": "## Summary\n\nAs [Robert Leshner mentioned in his forum post]([https://compound.finance/governance](https://compound.finance/governance)), the community now has the power to control COMP distribution across markets after [Gauntlet's recent proposal (#33)](https://compound.finance/governance/proposals/33). This will allow the protocol to better and more efficiently manage how COMP is used to improve and further the protocol's interests. Given that the initial COMP distribution numbers were set somewhat arbitrarily, it has become clear that it is worth resetting the parameters based on usage over the last six months. The refreshed numbers proposed will be used for A/B testing optimal COMP emission quantities in future proposals.\n\nIn a [comp.xyz forum post]([https://www.comp.xyz/t/comp-distribution-speeds/899/11](https://www.comp.xyz/t/comp-distribution-speeds/899/11)), Robert and Sirokko have put forth reasonable suggestions that we believe would improve upon the existing values. Both of their values for COMP distribution were quite similar and we chose Sirokko's numbers for two reasons:\n1. All markets are given a fixed quantity (10% of rewards spread evenly across the 9 active markets) of COMP rewards\n2. Splitting each market's COMP rewards into a fixed quantity (common to all markets) and a variable quantity makes it easy to analyze improvements in future A/B tests for incentives\n\nPlease read the forum post for more details.\n\n## Acknowledgments\n- Robert Leshner: For starting the discussion and putting out the first distribution numbers\n- Sirokko: For providing a coherent methodology for this refresh\n- Hsien-Tang Kao: For analyzing 1-step recursive borrowing in existing markets\n\n## References\n- [Forum post](https://www.comp.xyz/t/comp-distribution-speeds/899/21)",
+  "for_votes": "631909.824298132034788402",
+  "id": 35,
+  "title": "COMP Speed Recalibration",
+  "states": [
+    {
+      "end_time": 1611236956,
+      "start_time": 1610155608,
+      "state": "pending",
+      "trx_hash": "0xd7699eb50c1fa25498be7306a905949d2ce9c95830e7f64cf1fc41f3c59db9f0"
+    },
+    {
+      "end_time": 1611464188,
+      "start_time": 1611236956,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1611464188,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1610559995,
+      "start_time": 1610387195,
+      "state": "queued",
+      "trx_hash": "0x28c68a0dc1ab3a8b0ed942725fb35a3d95b8ed7b7158917a6cea8be1a168ba1b"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1610560179,
+      "state": "executed",
+      "trx_hash": "0x6657e37c0ddd387383d4da3eb9a63424ba4a23c8cab30808e1c77e98855d9235"
+    }
+  ]
+}
+{
+  "against_votes": "4.070526524822690068",
+  "description": "When the DSR (Dai Savings Rate) was introduced by MakerDAO, the Compound team developed a [CDaiDelegate](https://github.com/compound-finance/compound-protocol/blob/master/contracts/CDaiDelegate.sol) to take advantage of DSR (pre governance). With DSR remaining at 0% for an extended period of time, it would be advantageous for the sake of gas fees to change back to an implementation which doesn’t deposit to DSR.\n\nI propose setting the cDai implementation to the [CErc20Delegate](https://etherscan.io/address/0x976aa93ca5aaa569109f4267589c619a097f001d#code) which is already the implementation for cUSDT and setting the interest rate model for cDai to [that of cUSDT](https://etherscan.io/address/0xFB564da37B41b2F6B6EDcc3e56FbF523bD9F2012#code). The interest rate model change is necessary because the current IRM takes DSR into account. The actual interest parameters (base rate, multiplier, jump multiplier, and kink) will remain the same.\n\nThe end result of this proposal will be gas savings for users. This proposal has been simulated on a network fork to ensure expected outcome and uses contracts which have already been part of the Compound ecosystem for a long time. For more information, please see [this post](https://www.comp.xyz/t/migrate-cdai-implementation-from-cdaidelegate-to-cerc20delegate/807) on the Compound forums.",
+  "for_votes": "592775.120319740418813810",
+  "id": 34,
+  "title": "Semi-Permanent Gas Saving Measures for the DAI Market",
+  "states": [
+    {
+      "end_time": 1608594142,
+      "start_time": 1608594126,
+      "state": "pending",
+      "trx_hash": "0xc9fe23b1ae784da2a8684191e3fe7b720c4098b2c26dd2c1b622882b6d56120f"
+    },
+    {
+      "end_time": 1609914869,
+      "start_time": 1608594142,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1609914869,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1609008763,
+      "start_time": 1608835963,
+      "state": "queued",
+      "trx_hash": "0x90bf6625d8148d3d0cd57c53bae9bb37e5e648ce411210860e23dc79358e379f"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1609009952,
+      "state": "executed",
+      "trx_hash": "0x079bf2c28933180ac6e90928aecbd6bbd4fa03520fb6a0d303c4e5a4aa0cfb12"
+    }
+  ]
+}
+{
+  "against_votes": "0.392458313943560909",
+  "description": "## Summary\nIn order to reduce the size of the `Comptroller` for both vesting updates and future changes, this proposal contains a number of size and gas optimizations. Currently, there is not enough space in the `Comptroller` for vesting changes, which is the main impetus for this proposal. We split this out from the remainder of the vesting changes, as these changes provide protocol users with some more immediate gas benefits. An itemized summary of the changes is as follows:\n1. This proposal removes automatic COMP claims for users and also removes automatic COMP speed refresh, replacing it with `_setCompSpeed` , controlled by governance\n2. Implements several related small changes related to the above to further optimize the Comptroller contract and reduce gas costs for users.\nPlease note that this patch is **not** in itself making any immediate COMP speed adjustment, it is simply removing some redundant speed change functions and giving governance more direct control.\n\n## References\n- [Audit, by QuantStamp](https://certificate.quantstamp.com/full/compound-protocol) (please note that some of the code has changed since the audit, see PR for more details) \n- [Pull Request on GitHub](https://github.com/compound-finance/compound-protocol/pull/83)\n- [Forum post](https://www.comp.xyz/t/comptroller-optimizations-to-enable-vesting/845)",
+  "for_votes": "579763.426053312821957596",
+  "id": 33,
+  "title": "Remove automatic COMP claims and COMP speed refresh",
+  "states": [
+    {
+      "end_time": 1609682732,
+      "start_time": 1608588941,
+      "state": "pending",
+      "trx_hash": "0xa696313424a478df04ea6d8ef826231c642bf470874d2d8caa1bb7675d95383d"
+    },
+    {
+      "end_time": 1609909964,
+      "start_time": 1609682732,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1609909964,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1608992827,
+      "start_time": 1608820027,
+      "state": "queued",
+      "trx_hash": "0xa7b169853eb6a1b05ab48fe5dbefab3b835c8e6cea8c393c61c763338b531351"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1608992957,
+      "state": "executed",
+      "trx_hash": "0x8f55d3299da45c5785865e9bc18551598442c317f312940eb89895e5c2da9653"
+    }
+  ]
+}
+{
+  "against_votes": "1.029589056859351234",
+  "description": "This proposal adds Compound as a supported asset.\n\nThe cCOMP contract was deployed using existing, proven code. The implementation contract is the same contract as the cUNI implementation contract.\n\ncCOMP uses a new [JumpRateModelV2](https://etherscan.io/address/0xd956188795ca6f4a74092ddca33e0ea4ca3a1395) interest rate model with the following parameters:\n- 2% APY borrow base rate\n- 20% APY borrow rate at kink\n- Kink at 80% utilization\n- 100% APY borrow rate at 100% utilization\n\nThe collateral factor for cCOMP is set to 60% and the reserve factor is set to 20%. A borrowing cap of 50k COMP is set as well.\n\n[Discussion](https://www.comp.xyz/t/adding-comp-as-an-asset/470)",
+  "for_votes": "622697.045365910882164402",
+  "id": 27,
+  "title": "Add COMP Support",
+  "states": [
+    {
+      "end_time": 1603668265,
+      "start_time": 1602523090,
+      "state": "pending",
+      "trx_hash": "0x21782a40119c31cc05f9d6b34c309f3b9c14ec934f1b2733d4f309a6181b53f9"
+    },
+    {
+      "end_time": 1603895497,
+      "start_time": 1603668265,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1603895497,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1602926182,
+      "start_time": 1602753382,
+      "state": "queued",
+      "trx_hash": "0x9f0594eb06f11614b8e35df179af5638b73f7e3e3db7576d98583aba8cb4a72c"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1602926226,
+      "state": "executed",
+      "trx_hash": "0xedb643b35ea58bb570489c205ba122ae9d9412ce117714f38507fbb65e784160"
+    }
+  ]
+}
+{
+  "against_votes": "1.029589056859351234",
+  "description": "We saw unexpected demand for the Uniswap market and the pre-set Borrowing Cap quickly reached its limit; this proposal increases the borrow cap to 5M UNI and sets the Borrow Cap Guardian to the Community Multi-Sig which allows for rapidly setting new borrow caps if needed (Read about Multi-sig below).\n\nAdditionally, this proposal sets a new [interest rate model](https://etherscan.io/address/0xd88B94128Ff2B8Cf2d7886cd1C1E46757418cA2A#code) for cUNI using the following parameters:\n- 2% base rate\n- 30% borrow rate at kink\n- Kink at 80%\n- 150% borrow rate at 100% utilization\n- Owner is Timelock (0x6d903f6003cca6255D85CcA4D3B5E5146dC33925)\n![InterstrateModel](https://i.imgur.com/1qAHoKb.png)\n\n\nThe Multi-Sig requires 4-of-6 signers to approve any transaction. The signer addresses can be seen [here on Gnosis Safe](https://gnosis-safe.io/app/#/safes/0xbbf3f1421D886E9b2c5D716B5192aC998af2012c/settings), and currently include @aaaaaaaaaaaaa, @arr00, @blck, Compound Labs, Dharma Labs (@0age), and @jared. For full context and history on the Multi-Sig, please see [this post](https://www.comp.xyz/t/community-multisig-4-of-6-deployment/134) on the Compound Community Forum.",
+  "for_votes": "466606.245910121977368101",
+  "id": 26,
+  "title": "Uniswap Improvement Strategy",
+  "states": [
+    {
+      "end_time": 1603345301,
+      "start_time": 1602195520,
+      "state": "pending",
+      "trx_hash": "0x948e96d50a6076c45e81986ea29b88d8e8f0e5ba7cd130e4516e64180540d0cf"
+    },
+    {
+      "end_time": 1603572533,
+      "start_time": 1603345301,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1603572533,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1602599743,
+      "start_time": 1602426943,
+      "state": "queued",
+      "trx_hash": "0xe7e95a10dd7110eaea08478e539c491a04b94000c1c92646d6e759fb9e8d3e15"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1602600669,
+      "state": "executed",
+      "trx_hash": "0x9fd1256958c8b33e03de9818896a276f7fddc1994738ae28c0319842c702fcf3"
+    }
+  ]
+}
+{
+  "against_votes": "5015.751207820573403091",
+  "description": "This change increases the Collateral Factor of WBTC from 40% to 60%.\n\nOn July 14th, proposal 16 was passed to raise WBTC's Collateral Factor from 0% to 40%. According to Defi Pulse, on July 14th there were ~$100M of WBTC in circulation. Today there are ~$900M of WBTC in circulation. In addition to having a much larger supply today, WBTC liquidity has significantly grown since proposal 16 was passed. Uniswap.info shows WBTC on July 14th with a total liquidity of ~$1.15M while today it has ~$230M.\n\nWith this starkly increased liquidity and demand, it makes sense to increase the WBTC collateral factor. Even with this proposed increase to 60%, the WBTC collateral factor would still be significantly under that of DAI, USDC, and ETH, which are each 75%.\n\nWe agree with the arguments from proposal 16 that this change would help diversify the set of assets available to borrow on Compound. Now that WBTC has proven itself as a useful asset on Compound, passing this proposal would be a significant improvement to the Compound ecosystem.",
+  "for_votes": "736937.088937892575698623",
+  "id": 24,
+  "title": "Set WBTC Collateral Factor to 60%",
+  "states": [
+    {
+      "end_time": 1602359182,
+      "start_time": 1601181285,
+      "state": "pending",
+      "trx_hash": "0xd9223963eb167cd822807ed3c69e5bab8fdee06dab417a365861432f0c237da2"
+    },
+    {
+      "end_time": 1602586414,
+      "start_time": 1602359182,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1602586414,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1601588483,
+      "start_time": 1601415683,
+      "state": "queued",
+      "trx_hash": "0xec08251f8340df626a16dd77c4a328f4348925808520a5de5cb700ddbf9060a5"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1601588525,
+      "state": "executed",
+      "trx_hash": "0x8d61002c2a0ca96d48a390f0d1175f41dcac1e4c62b6c2f3379eb5394023bc11"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "##### Summary\nRecently, Dharma built, tested, and deployed a new upgradable interest rate model contract for cDAI based on the new JumpRateModelV2. Shortly thereafter, Arr00 proposed an update to the cUSDT interest rate model that followed the new cDAI architecture. \n\nThis proposal updates the cUSDC interest rate model to a recently deployed LegacyJumpRateModelV2 with the same parameters as the current cDAI and cUSDT interest rate models:\n- 0% base rate (current 2%)\n- 4% borrow rate at kink (current no kink)\n- Kink at 80% utilization (current no kink)\n- 25% borrow rate at 100% utilization (current 12.25%)\n- Owner is Timelock (0x6d903f6003cca6255D85CcA4D3B5E5146dC33925)\n\nThis proposal completes the effort of setting a standardized interest rate model for all stablecoins on Compound.\n\nThe new LegacyJumpRateModelV2 is a simple refactorization of existing code and has been tested using fork simulations. The code has *not* been audited professionally due to the simplicity of the changes made.\n\nThis contract was written, tested, and deployed by Arr00 and reviewed by Dharma. The proposal comes from Dharma as Arr00 does not (yet!) have sufficient COMP delegation.\n\nThe last two actions take 622 Sai (currently valued at $1200) from reserves and transfer them to Arr00 as a bounty for his work on this proposal.\n\n##### Graph of proposed Interest Rate Model\n![IRM Graph](https://i.imgur.com/ehc2LLY.png)\nNew [LegacyJumpRateModelV2](https://etherscan.io/address/0xd8ec56013ea119e7181d231e5048f90fbbe753c0#code)\nGitHub [PR](https://github.com/compound-finance/compound-protocol/pull/61)\n[Discussion](https://www.comp.xyz/t/update-cusdc-interest-rate-model/317)",
+  "for_votes": "427750.061507058583668537",
+  "id": 23,
+  "title": "Upgrade cUSDC Interest Rate Model",
+  "states": [
+    {
+      "end_time": 1600289901,
+      "start_time": 1600289888,
+      "state": "pending",
+      "trx_hash": "0xd2e40cb3a71ece345fd9d6f1f655923e5dc968bddea192e262c0c8ca424ca312"
+    },
+    {
+      "end_time": 1601704614,
+      "start_time": 1600289901,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1601704614,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1600693297,
+      "start_time": 1600520497,
+      "state": "queued",
+      "trx_hash": "0xe27f4a78a06ca62d9b64fcaf1c18f68182a0ec9435c4f3077468e7d428547691"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1600706774,
+      "state": "executed",
+      "trx_hash": "0xb69b01e163aac95559e6fc6ffd496820191c0dd40fd6f278da06df78efdb7383"
+    }
+  ]
+}
+{
+  "against_votes": "15015.341614286591793239",
+  "description": "This proposal implements a new comptroller with the “borrow caps” feature requested by the community. On each borrow, the new total borrows is checked against the borrow cap and reverts if the new total borrows is too large.\n\nThe actual usage of borrow caps will come at a later date once the community understands the new feature fully. Then, it will be how to use the borrow caps and what the role of the Borrow Cap Guardian will be. \n\nThis patch has been discussed and developed in the open, reviewed by members of the community, and tested on the Kovan testnet. New scenario tests and fork simulations for the new contract were written. The new contract has been reviewed by [Open Zeppelin](https://gist.github.com/jcarpanelli/70f071bad8dfc62ff1a82bf8ed8377e1) and no major issues were found. Their recommendations were taken into account for the new comptroller deployment.\n\nThe last two calls withdraw from the cSAI reserves about $5000 worth of SAI and sends it to Arr00 as a bounty for organizing and implementing this proposal.\n\n[Discussion](https://www.comp.xyz/t/governance-proposal-x-borrow-limits-comptroller-patch-renamed-to-borrow-caps/233)\n[GitHub pull request](https://github.com/compound-finance/compound-protocol/pull/42)\n\nProposal by Arr00",
+  "for_votes": "805960.108061828347756560",
+  "id": 22,
+  "title": "New Feature: Borrow Caps",
+  "states": [
+    {
+      "end_time": 1600797580,
+      "start_time": 1599604059,
+      "state": "pending",
+      "trx_hash": "0x7432f132b36d9f17500d895df72364852459b739268e6828cdcc8ab8b19d76b7"
+    },
+    {
+      "end_time": 1601024812,
+      "start_time": 1600797580,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1601024812,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1600006545,
+      "start_time": 1599833745,
+      "state": "queued",
+      "trx_hash": "0x6757273dabc2d28dccecb2a62a5e4feb1ca894cd85825d8e5f8fe76491403b4b"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1600009922,
+      "state": "executed",
+      "trx_hash": "0xa8c232fcb63cfc0ae2822c5e63c4d9454f3dd5b905c3817807152ca2dcf3d1b9"
+    }
+  ]
+}
+{
+  "against_votes": "1.536199334935356203",
+  "description": "In preparation for the launch of Augur v2 (est. July 28th), the Augur team [suggested a migration timeline](https://www.comp.xyz/t/augur-migration-proposal/58) for Compound, which begins by partially deactivating cREP.\n\nThis proposal prevents supplying and borrowing REPv1, and removes the incentives to maintain REPv1 inside Compound by removing the supply interest rate and COMP distribution.\n\nUsers can voluntarily migrate to Augur v2 at their own pace, but as Augur v2 gets closer to a potential fork event, future proposals should take stronger steps to wind down existing cREP positions. Once Augur v2 is stable, a future proposal can create a new Compound market for it.\n\nThis proposal does not introduce any new contracts.\n\n[Discussion](https://www.comp.xyz/t/augur-migration-proposal/58)",
+  "for_votes": "757201.936853865529237557",
+  "id": 17,
+  "title": "REP Migration",
+  "states": [
+    {
+      "end_time": 1596406637,
+      "start_time": 1595160562,
+      "state": "pending",
+      "trx_hash": "0x2b5b8d07205603a1b625de278f892fcf5e7fd787b6b1a094cca53936f5bc0a40"
+    },
+    {
+      "end_time": 1596633869,
+      "start_time": 1596406637,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1596633869,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1595566646,
+      "start_time": 1595393846,
+      "state": "queued",
+      "trx_hash": "0xc40dc233e2f473a0efa01d2bc0f07efcf4018eced3a343005e4b845707265137"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1595597125,
+      "state": "executed",
+      "trx_hash": "0x37e729c7a6efd54efa1367dcfa9ed9ec3e68ebb7706b4a38f09cb032518c7247"
+    }
+  ]
+}
+{
+  "against_votes": "523974.055927279977814001",
+  "description": "This change increases the Collateral Factor of [WBTC](https://compound.finance/markets/WBTC) from 0% to 40%.\n\nWBTC currently cannot be used as collateral on Compound, although it can be loaned and borrowed. This would allow users to loan WBTC while using 40% of its value as collateral.\n\nDAI, USDC, and ETH each already have a Collateral Factor of 75%. BTC, and thus WBTC, has greater market liquidity than any of those and comparable market volatility to ETH, and so warrants a similar Collateral Factor.\n\nBecause this is increasing a Collateral Factor it cannot trigger any liquidations.\n\nThis proposal makes no changes beyond setting the Collateral Factor of WBTC to 40%.\n\n[Prior discussion](https://compound.comradery.io/post/1627) has generally endorsed this idea but mentioned the risk of large amounts of WBTC minting. We appreciate that risk but believe it to be very low. More importantly, this risk already exists on Compound, between USDC and DAI. Given that the incentive structure has resulted in very large amounts of DAI being borrowed and loaned on the platform, we believe that adding more diversity to the set of usable collateral will decrease rather than increase the structural risk to the platform by moving some usage away from DAI and towards WBTC.\n\nWe believe this change is justified and appropriate. We also think that it will help to diversify the set of assets available to borrow on Compound.\n\nWe originally proposed this change with a collateral factor of 65%. In response to community feedback, we are resubmitting with a collateral factor of 40%. We are grateful to the Compound community for the prompt and thoughtful responses to our first proposal. We understand the worries that many have, and while we supported (and still do support) taking the collateral factor up to 65% we completely respect the worries that many have with doing so. As such we hope that instead taking the collateral factor to 40%--well above 0 but lower than any other lendable asset on the platform--might be a middle ground.",
+  "for_votes": "533998.606821237728356266",
+  "id": 16,
+  "title": "Set WBTC Collateral Factor to 40%",
+  "states": [
+    {
+      "end_time": 1595568101,
+      "start_time": 1594308185,
+      "state": "pending",
+      "trx_hash": "0x8e235d258f3b5d2b5afbd9fc55a6abf2328fa65defe86b0b4ee47038b09d3233"
+    },
+    {
+      "end_time": 1595795333,
+      "start_time": 1595568101,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1595795333,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1594713689,
+      "start_time": 1594540889,
+      "state": "queued",
+      "trx_hash": "0x73dd12c3df200a88b68e11d3d394f67a02e4256ee64aaf7d867b8851887de872"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1594714496,
+      "state": "executed",
+      "trx_hash": "0xe7a96c23479c1d5e6d2e30a3b0161c0cad4494ad30459fc6984ece269c31c8bc"
+    }
+  ]
+}
+{
+  "against_votes": "9.587989122047924759",
+  "description": "The Compound community committed to a process of deprecating SAI, by reducing the Collateral Factor each week. To reduce governance complexity during the COMP Distribution launch, weekly SAI proposals were skipped. This proposal completes the process, by reducing SAI's Collateral Factor to 0%.\n\n\n**Collateral Factor**\n+ Current Collateral Factor 35%\n+ Proposed Collateral Factor 0%\n\nGoing from 35% to 0% with the current market prices **would cause** some liquidations on the analyzed accounts.\n\n**Analysis**\n\n![Analysis](https://i.imgur.com/mB1SY15.png)\n\n\n(The list does not contain accounts that hold less than 50 SAI)\n\n[Analyzed accounts](https://i.imgur.com/mB1SY15.png)\n\n[Forum discussion](https://compound.comradery.io/post/1600)",
+  "for_votes": "997005.413415610184387229",
+  "id": 15,
+  "title": "Changing SAI collateral factor to 0%",
+  "states": [
+    {
+      "end_time": 1594238649,
+      "start_time": 1594238641,
+      "state": "pending",
+      "trx_hash": "0xc1b0d776217fd791838582577f1872c96f716622bccb704f2364827691340c41"
+    },
+    {
+      "end_time": 1595727413,
+      "start_time": 1594238649,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1595727413,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1594644320,
+      "start_time": 1594471520,
+      "state": "queued",
+      "trx_hash": "0x5652fbbb1b89e1217f3cb34355f26917a0da383906130d7218f7ec122f961743"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1594644691,
+      "state": "executed",
+      "trx_hash": "0xde213085e1c2fb1f981d8543e4d0bca4634a31cf41258ab9ed62df3b9022823c"
+    }
+  ]
+}
+{
+  "against_votes": "1.336940941763063553",
+  "description": "This proposal implements a new Comptroller contract, patching the [refreshCompSpeeds](https://compound.finance/docs/comptroller#refresh-comp-speeds) function.\n\nIt modifies the allocation of COMP across markets, by removing the borrowing interest rate as a weighting mechanism. Each market is allocated COMP relative to borrowing demand; the allocation is then split equally between suppliers and borrowers.\n\nThe function has also been updated to require an external account (not a smart contract), reducing the risk of griefing.\n\nThis patch has been [discussed](https://compound.comradery.io/post/1769) and [developed in the open](https://github.com/compound-finance/compound-protocol/pull/29), reviewed by members of the community, and tested on Ethereum’s Kovan and Ropsten testnets. Given the limited scope of changes, *it has not been reviewed by professional auditors*.",
+  "for_votes": "771804.523194685485368761",
+  "id": 11,
+  "title": "COMP Distribution Patch",
+  "states": [
+    {
+      "end_time": 1594587453,
+      "start_time": 1593310389,
+      "state": "pending",
+      "trx_hash": "0xdf4d94b3e474f3465504077dc995f1d85c03bc7ec72147830ac13bc6e0c445cd"
+    },
+    {
+      "end_time": 1594814685,
+      "start_time": 1594587453,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1594814685,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1593716503,
+      "start_time": 1593543703,
+      "state": "queued",
+      "trx_hash": "0x1e562e2e0ce71d2d8eabaf65879320676296ba4823dddcc2215a985eb7aad3f5"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1593716562,
+      "state": "executed",
+      "trx_hash": "0x6c8b0b7f77dbb7967fc47e24cc9c55847a395137bc0bbfcf583c700daa675e81"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "This proposal activates the continuous distribution of COMP to all users of the protocol, [announced on May 27th, 2020](https://medium.com/compound-finance/expanding-compound-governance-ce13fcd4fe36).\n\nEvery Ethereum block, `0.50` COMP will be distributed across ETH, DAI, USDC, USDT, BAT, REP, WBTC and ZRX markets, proportional to the interest being accrued in the market; as conditions evolve, the allocation between markets is updated by invoking the *refreshCompSpeeds* function. Within each market, half of the COMP is allocated to suppliers, and the other half to borrowers.\n\nWhenever an address interacts with a Compound market, it receives all COMP earned in that market, should it exceed a `0.001` COMP threshold. Users can collect all COMP, across all markets, by invoking the *claimComp* function.\n\nThis proposal implements a new Comptroller contract, which has been publicly tested on the Kovan testnet, and reviewed by [OpenZeppelin](https://blog.openzeppelin.com/compound-comp-distribution-system-audit/) and Compound Labs.",
+  "for_votes": "1116310.81000000000000000",
+  "id": 7,
+  "title": "Distribute COMP to Users",
+  "states": [
+    {
+      "end_time": 1593142821,
+      "start_time": 1591841611,
+      "state": "pending",
+      "trx_hash": "0xbd21a9a684a3fce0bd67518dd34043936e5bceb523df15ed03cc97fcf9d795c2"
+    },
+    {
+      "end_time": 1593370053,
+      "start_time": 1593142821,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1593370053,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1592245295,
+      "start_time": 1592072495,
+      "state": "queued",
+      "trx_hash": "0x61ef57324151df37feff9d9629149b111c63ad9f28ee1532f98b4a037cae275e"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1592245303,
+      "state": "executed",
+      "trx_hash": "0x03dab5602fb58bb44c1a248fd1b283ca46b539969fe02db144983247d00cfb89"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "Weekly reduction of SAI collateral factor.\n\n**Collateral Factor**\n\nGoing from 45% to 35% with the current market prices **would cause** nine liquidations on the analyzed accounts.\n\n\n![Analysis](https://i.imgur.com/l0ajQiI.png)\n\n\n(The list does not contain accounts that hold less than 50 SAI)\n\n[Analyzed accounts](https://i.imgur.com/l0ajQiI.png)\n\n[Forum discussion!](https://compound.comradery.io/post/1600)",
+  "for_votes": "850811.54000000000000000",
+  "id": 6,
+  "title": "Changing SAI collateral factor to 35%",
+  "states": [
+    {
+      "end_time": 1592936643,
+      "start_time": 1591631130,
+      "state": "pending",
+      "trx_hash": "0xf6604cdea38504dfd3703b349121337cf7e9d82c10bbbbc3c8b52eca39c251d9"
+    },
+    {
+      "end_time": 1593163875,
+      "start_time": 1592936643,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1593163875,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1592073788,
+      "start_time": 1591900988,
+      "state": "queued",
+      "trx_hash": "0xd8ee0b4da042b06531b1ab920f4baa3c2abb30ea18dec571d0f22380f8668a9a"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1592076922,
+      "state": "executed",
+      "trx_hash": "0xf01baf41a7a52f5bc7e7f5da89bd3c2692f45d3fa3a4173cb2f6dbdca0cf2963"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "Weekly reduction of SAI collateral factor.\n\n**Collateral Factor**\n\nGoing from 55% to 45% with the current market prices **would cause** four liquidations on the analyzed accounts.\n\n\n**Analysis**\n\nThere is a new field added \"loss due liquidation\" calculates a potential loss for accounts that would be liquidated caused by the collateral factor change.\n\n![Analysis](https://i.imgur.com/pS2aeFh.png)\n\n\n(The list does not contain accounts that hold less than 50 SAI)\n\n[Analyzed accounts](https://i.imgur.com/pS2aeFh.png)\n\n[Forum discussion!](https://compound.comradery.io/post/1600)",
+  "for_votes": "553679.15000000000000000",
+  "id": 5,
+  "title": "Changing SAI collateral factor to 45%",
+  "states": [
+    {
+      "end_time": 1592320605,
+      "start_time": 1591002827,
+      "state": "pending",
+      "trx_hash": "0x9bb530b334db2d1c204f7fa42559535327e7a0f10fc229b8e87206405e56d9d9"
+    },
+    {
+      "end_time": 1592547837,
+      "start_time": 1592320605,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1592547837,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1591415121,
+      "start_time": 1591242321,
+      "state": "queued",
+      "trx_hash": "0x52990be8b4d9a600da301ef1f9ab1fa16c27376074da977bfb1c8d22a5361941"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1591436959,
+      "state": "executed",
+      "trx_hash": "0x2c15915dec2650ffcb796d2bb2075034c931bada321bb0dab413247a95640626"
+    }
+  ]
+}
+{
+  "against_votes": "24107.64000000000000000",
+  "description": "Following a community discussion, there was widespread consensus to decrease the collateral factor of SAI by 10% per week. The [first](https://compound.finance/governance/proposals/3) proposal in this topic was successfully executed; this proposal continues the gradual deprecation of the SAI, by reducing the collateral factor from 65% to 55%.\n\n\n**Collateral Factor**\n\nGoing from 65% to 55% with the current market prices **would cause** two small liquidations on the analyzed accounts.\n\n![Analysis](https://i.imgur.com/KIuG5E2.png)\n\n\n(The list does not contain accounts that hold less than 50 SAI)\n\n[Analyzed accounts](https://i.imgur.com/KIuG5E2.png)\n\n[Forum discussion!](https://compound.comradery.io/post/1600)",
+  "for_votes": "427228.87000000000000000",
+  "id": 4,
+  "title": "Changing SAI collateral factor to 55%",
+  "states": [
+    {
+      "end_time": 1591504253,
+      "start_time": 1590169444,
+      "state": "pending",
+      "trx_hash": "0xf8d137bd9de2e8001828b7b0097f41f9770014cd4d181d21c71d12ce8fd2a80a"
+    },
+    {
+      "end_time": 1591731485,
+      "start_time": 1591504253,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1591731485,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1590597384,
+      "start_time": 1590424584,
+      "state": "queued",
+      "trx_hash": "0x10cf1d1313259a4ace4102d0f56ea9453f4ac3f5a53ef5c9f133d81dc9c4ea8c"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1590599188,
+      "state": "executed",
+      "trx_hash": "0xd6b0f370ac61a926f9bbe19ebb15a34b303c3f1407d17ad57a1e04e3f2a94000"
+    }
+  ]
+}
+{
+  "against_votes": "0",
+  "description": "This is the first proposal that intent to slowly close the SAI market, following this there will likely be recurring proposals to continue lower the collateral factor.\n\n### **Reserve Factor**\n\nSAI suppliers will no longer receive interest, this ensures that users will no longer be motivated to keep their SAI and start migrating.\n\n### **Collateral Factor**\n\nLowering the collateral factor will put pressure on borrowers that use SAI as collateral.\nGoing from 75% to 65% with the current market prices **would not cause** any liquidation on the analyzed accounts.\n\n![Analysis](https://i.imgur.com/XLOPjQ1.png)\n\n\n(The list does not contain accounts that hold less than 50 SAI)\n\n[Analyzed accounts](https://i.imgur.com/XLOPjQ1.png)\n\n[Forum discussion](https://compound.comradery.io/post/1600)",
+  "for_votes": "726812.88000000000000000",
+  "id": 3,
+  "title": "Changing SAI reserve factor to 100% and collateral factor to 65%",
+  "states": [
+    {
+      "end_time": 1590825108,
+      "start_time": 1589474064,
+      "state": "pending",
+      "trx_hash": "0x9c568b241b222a0287c01740c176ad071be4d53b353db233aa6f53ca8ae22323"
+    },
+    {
+      "end_time": 1591052340,
+      "start_time": 1590825108,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1591052340,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1589891743,
+      "start_time": 1589718943,
+      "state": "queued",
+      "trx_hash": "0x5d22ef40426138491a6af13eea978cf23e48f10b0113102b738fb4badec31f43"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1589897828,
+      "state": "executed",
+      "trx_hash": "0xc92c24d468cb9682b8829fc0e38b44720e1042bc5eb9da393e9c6e5cd0938085"
+    }
+  ]
+}
+{
+  "against_votes": "25001.00000000000000000",
+  "description": "## Proposal Summary\nIn this Compound Improvement Proposal, we propose a new interest rate model for Dai. We believe this new interest rate model provides a better user experience to capital suppliers, with minimal impact to borrowers.\n\n## Context\nWhen the DAI interest rate model was developed and deployed, the community, including the Compound team, did not anticipate the Stability Fee (SF) and Dai Savings Rate (DSR) in MakerDAO's Multi-Collateral Dai (MCD) system to be set to zero for a prolonged period of time. As a result, the current Dai interest rate model in Compound does not provide a good user experience to capital suppliers when the SF and/or DSR are zero. \n\n## Chart of Current Interest Rate Model\nThis is a chart of the current Dai interest rate model when the Dai Savings Rate is set to zero:\n\n![https://user-images.githubusercontent.com/37939117/80403543-bebc5000-888d-11ea-8e21-3d957f7282eb.png](https://user-images.githubusercontent.com/37939117/80403543-bebc5000-888d-11ea-8e21-3d957f7282eb.png)\n\nAs you can see, when capital utilization is below 90%, suppliers earn practically nothing. And when capital utilization is greater than 90%, rates fluctuate wildly due to the steep slope of the post-kink part of the curve.\n\n## Proposed Interest Rate Model\nOur proposal adjusts the current model to provide a modest interest rate to capital suppliers when interest rates are below 90%. As an added benefit, when rates are greater than 90%, the interest rate volatility should decrease (slightly).\n\n![https://user-images.githubusercontent.com/37939117/80403556-c54ac780-888d-11ea-89f7-5ac073a7ac39.png](https://user-images.githubusercontent.com/37939117/80403556-c54ac780-888d-11ea-89f7-5ac073a7ac39.png)\n\n# Supporting Links\n- [Deployed `DAIInterestRateV2` contract utilized in this proposal]( https://etherscan.io/address/0x000000007675b5e1da008f037a0800b309e0c493#code)\n- [PR containing this proposal merged into `compound-finance/compound-protocol` Github repo](https://github.com/compound-finance/compound-protocol/pull/23)",
+  "for_votes": "898262.35000000000000000",
+  "id": 2,
+  "title": "Update DAI Interest Rate Model to Better Accommodate Zero Stability Fee",
+  "states": [
+    {
+      "end_time": 1589394282,
+      "start_time": 1588018145,
+      "state": "pending",
+      "trx_hash": "0x9ba70aab4edd5a0ea9f357ef7060ebd6826ddc2fe52b8dbc7f5a63a915ef8f88"
+    },
+    {
+      "end_time": 1589621514,
+      "start_time": 1589394282,
+      "state": "active",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 0,
+      "start_time": 1589621514,
+      "state": "succeeded",
+      "trx_hash": ""
+    },
+    {
+      "end_time": 1588427208,
+      "start_time": 1588254408,
+      "state": "queued",
+      "trx_hash": "0xc10b8fe7e13ad447f3733e3d17378e8bb7ba5367331817540c053be1a1c6aac9"
+    },
+    {
+      "end_time": 0,
+      "start_time": 1588427803,
+      "state": "executed",
+      "trx_hash": "0x4caa5276108eb7800091c100223b31f2f71de2ba218460e2acf99c45743c4675"
+    }
+  ]
+}

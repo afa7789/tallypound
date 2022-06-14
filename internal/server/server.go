@@ -25,7 +25,8 @@ func NewServer(
 	cCtrl := NewCompoundController(cc)
 
 	// gorilla mux routing group
-	r.HandleFunc("/stats", cCtrl.Stats)
+	r.HandleFunc("/stats-builder", cCtrl.Stats)
+	r.HandleFunc("/stats", cCtrl.CachedStats)
 	r.HandleFunc("/proposals", cCtrl.Proposals)
 
 	return &Server{

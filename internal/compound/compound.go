@@ -115,24 +115,33 @@ func (cc *CacheCompound) Stats() (*domain.Stats, error) {
 		if err != nil {
 			return nil, err
 		}
-
+		/* DEBUGGING COMPOUND
 		// calculate for the created stats above
-		timestamp := 0
+		var timestamp int
 		olderState := domain.State{}
-		// range proposals
+		range proposals
 		for _, proposal := range pr.Proposals {
-			// check which state is the older, bigger timestamp on start.
-			for _, state := range proposal.States {
-				// if state is equal to "active"
-				if timestamp < state.StartTime {
-					timestamp = state.StartTime
-					olderState = state
-				}
+		timestamp = 0
+
+		check which state is the older, bigger timestamp on start.
+		from most priortity to last priority
+		for _, state := range proposal.States {
+
+			// if state is equal to "active"
+			if timestamp <= state.StartTime {
+				timestamp = state.StartTime
+				olderState = state
 			}
+		}
+		*/
+		for _, proposal := range pr.Proposals {
+
+			length := len(proposal.States)
+			switch proposal.States[length-1].State {
 
 			// swich case each state
-			// stats: pending , active ,canceled , defeated , succeeded , queued , expired , executed .
-			switch olderState.State {
+			// stats:
+			// switch olderState.State {
 			case "pending":
 				stats.Pending++
 			case "active":
@@ -142,6 +151,14 @@ func (cc *CacheCompound) Stats() (*domain.Stats, error) {
 			case "defeated":
 				stats.Defeated++
 			case "succeeded":
+				/*
+					DEBUGGING COMPOUND
+					// empJSON, err := json.MarshalIndent(proposal, "", "  ")
+					// if err != nil {
+					// 	return nil, err
+					// }
+					// fmt.Printf("%v\n", string(empJSON))
+				*/
 				stats.Succeeded++
 			case "queued":
 				stats.Queued++
@@ -161,5 +178,26 @@ func (cc *CacheCompound) Stats() (*domain.Stats, error) {
 		}
 	}
 
+	bytes, err := json.Marshal(stats)
+	if err != nil {
+		return nil, err
+	}
+
+	cc.cache.SetWithoutExpiration("all_stats", bytes)
+
 	return stats, nil
+}
+
+// Stats with the compound API answer mount a new struct with the stats.
+func (cc *CacheCompound) CachedStats() (*domain.Stats, error) {
+	b, _ := cc.cache.Get("all_stats")
+
+	// unmarshal the body into a struct
+	var stats domain.Stats
+	err := json.Unmarshal(b.([]byte), &stats)
+	if err != nil {
+		return nil, err
+	}
+
+	return &stats, nil
 }
